@@ -2,6 +2,7 @@
 
     use app\assets\AppAsset;
     use yii\helpers\Html;
+    use yii\helpers\Url;
 
     AppAsset::register($this);
 ?>
@@ -79,7 +80,7 @@
 
 					<div class="sm-grid-4 xs-grid-10 lg-hidden md-hidden right">
 
-						<form action="/search" method="get" class="search_widget search_widget--top_line ">
+						<form action="<?= Url::to(['category/search']) ?>" method="GET" class="search_widget search_widget--top_line ">
 							<input type="text" name="q" class="search_widget-field" value="" placeholder="Поиск"/>
 
 							<button class="search_widget-submit button--invert" type="submit">

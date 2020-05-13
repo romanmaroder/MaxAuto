@@ -41,8 +41,13 @@
                 return $this->render('search');
             }
 
-            $query = Product::find()->where(['like', 'title', $q]);
-            $pages = new Pagination(['totalCount'    => $query->count(), 'forcePageParam' => false,
+            $query = Product::find()->where(['OR',
+                                             ['like', 'title', $q],
+                                             ['like', 'article', $q],
+                                             ['like', 'price', $q]]);
+            $pages = new Pagination(['totalCount'    => $query->count(),
+                                     'forcePageParam' => false,
+                                     'pageSize' => 12,
                                      'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
