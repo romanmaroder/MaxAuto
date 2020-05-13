@@ -1,6 +1,26 @@
 <div class="lg-grid-3 md-grid-3 sm-hidden xs-hidden padded-inner-sides lg-fr md-fr center">
 
     <div class="sidebar">
+<?php $news = $this->params['news'] ?>
+        <?php if (!empty($news)): ?>
+            <div class="sidebar_block">
+                <div class="sidebar_block-title">
+                    Новые статьи
+                </div>
+                <div class="sidebar_block-content-news">
+                    <?php foreach ( $news as $post ): ?>
+
+                        <div class="article_preview article_preview--list">
+                            <a href="<?= \yii\helpers\Url::to(['blog/view','ud'=> $post->id]) ?>" class="article_preview-title">
+                                <?= $post->title ?> магазина
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
 
         <div class="sidebar_block">
             <div class="sidebar_block-title">Группа ВКонтакте</div>

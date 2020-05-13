@@ -41,31 +41,11 @@
 	<section class="section--content">
 		<header>
 			<div class="section--top_panel sm-grid-12 xs-grid-12 lg-hidden md-hidden right">
+<!--				Mobile-menu-->
 				<div class="wrap row padded-vertical padded-inner-sides">
 					<div class="lg-hidden lg-grid-9 sm-grid-8 xs-grid-2">
 
 						<div class="top_menu">
-							<ul class="menu menu--top menu--horizontal menu--one_line sm-hidden xs-hidden js-menu--top">
-								<li class="menu-node menu-node--top">
-									<a href="/blogs/blog" class="menu-link">
-										Статьи
-									</a>
-								</li>
-
-								<li class="menu-node menu-node--top">
-									<a href="/page/delivery"
-									   class="menu-link">
-										Доставка
-									</a>
-								</li>
-
-								<li class="menu-node menu-node--top">
-									<a href="/page/feedback"
-									   class="menu-link">
-										Обратная связь
-									</a>
-								</li>
-							</ul>
 
 							<ul class="menu menu--top menu--horizontal lg-hidden md-hidden">
 								<li class="menu-node menu-node--top">
@@ -147,7 +127,8 @@
 					</div>
 				</div>
 
-                <?= $this->render('//layouts/inc/top_menu') ?>
+<!--                --><?//= $this->render('//layouts/inc/menu') ?>
+                <?= $this->render('//menu/index') ?>
 
 			</div>
 
@@ -262,35 +243,35 @@
 				<ul class="menu menu--main menu--mobile_panel menu--vertical">
 
 					<li class="menu-node">
-						<a href="/blogs/blog"
+						<a href="<?= Url::to(['blog/index']) ?>"
 						   class="menu-link">
 							Статьи
 						</a>
 					</li>
 
 					<li class="menu-node">
-						<a href="/page/o-magazine"
+						<a href="<?= Url::to(['shop/index']) ?>"
 						   class="menu-link">
 							О магазине
 						</a>
 					</li>
 
 					<li class="menu-node">
-						<a href="/page/kontakty"
+						<a href="<?= Url::to(['contact/index']) ?>"
 						   class="menu-link">
 							Контакты
 						</a>
 					</li>
 
 					<li class="menu-node">
-						<a href="/page/dostavka-i-oplata"
+						<a href="<?= Url::to(['delivery/index']) ?>"
 						   class="menu-link">
 							Доставка и оплата
 						</a>
 					</li>
 
 					<li class="menu-node menu-node--current">
-						<a href="/"
+						<a href="<?= Url::home() ?>"
 						   class="menu-link menu-link--current">
 							Каталог
 						</a>
@@ -301,203 +282,7 @@
 			</div>
 		</div>
 
-		<div class="panel_block">
-			<h3 class="panel_block-title">
-				Каталог
-			</h3>
-
-			<div class="panel_block-content">
-
-
-				<ul class="menu menu--collection menu--vertical menu--mobile_panel">
-
-					<li class="menu-node menu-node--collection_lvl_1 js-menu-wrapper">
-
-						<a href="/collection/vyhlopnaya-sistema-2"
-						   class="menu-link">
-							Выхлопная система
-						</a>
-
-					</li>
-
-					<li class="menu-node menu-node--collection_lvl_1 js-menu-wrapper">
-
-						<a href="/collection/tormoznye-diski-2"
-						   class="menu-link">
-							Тормозные диски
-						</a>
-
-
-						<span class="menu-marker menu-marker--parent menu-toggler button--toggler js-menu-toggler">
-          <i class="fa fa-plus"></i>
-        </span>
-
-						<ul class="menu menu--vertical menu--collapse">
-
-							<li class="menu-node menu-node--collection_lvl_2 js-menu-wrapper">
-
-
-								<a href="/collection/kolodki-2"
-								   class="menu-link menu-link">
-									Колодки
-								</a>
-
-
-								<span class="menu-marker menu-marker--parent menu-toggler button--toggler js-menu-toggler">
-                  <i class="fa fa-plus"></i>
-                </span>
-								<ul class="menu menu--vertical menu--collapse">
-
-									<li class="menu-node menu-node--collection_lvl_3">
-										<a href="/collection/tormoznye-kolodki-2"
-										   class="menu-link menu-link">
-											Тормозные колодки
-										</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-
-					</li>
-
-					<li class="menu-node menu-node--collection_lvl_1 js-menu-wrapper"
-					>
-
-
-						<a href="/collection/stseplenie-2"
-						   class="menu-link
-                "
-						>
-							Сцепление
-						</a>
-
-
-					</li>
-
-					<li class="menu-node menu-node--collection_lvl_1 js-menu-wrapper"
-					>
-
-
-						<a href="/collection/dvigatel-2"
-						   class="menu-link
-                "
-						>
-							Двигатель
-						</a>
-
-
-						<span class="menu-marker menu-marker--parent menu-toggler
-                    button--toggler
-                    js-menu-toggler">
-          <i class="fa
-                    fa-plus"
-		  ></i>
-        </span>
-
-						<ul class="menu menu--vertical
-                  menu--collapse"
-						>
-
-							<li class="menu-node menu-node--collection_lvl_2
-
-                      js-menu-wrapper"
-							>
-
-
-								<a href="/collection/porshni-2"
-								   class="menu-link menu-link
-                        "
-								>
-									Поршни
-								</a>
-
-
-							</li>
-
-							<li class="menu-node menu-node--collection_lvl_2
-
-                      js-menu-wrapper"
-							>
-
-
-								<a href="/collection/shatuny-2"
-								   class="menu-link menu-link
-                        "
-								>
-									Шатуны
-								</a>
-
-
-							</li>
-
-							<li class="menu-node menu-node--collection_lvl_2
-
-                      js-menu-wrapper"
-							>
-
-
-								<a href="/collection/klapany-2"
-								   class="menu-link menu-link
-                        "
-								>
-									Клапаны
-								</a>
-
-
-							</li>
-
-						</ul>
-
-					</li>
-
-					<li class="menu-node menu-node--collection_lvl_1 js-menu-wrapper"
-					>
-
-
-						<a href="/collection/podacha-topliva-2"
-						   class="menu-link
-                "
-						>
-							Подача топлива
-						</a>
-
-
-					</li>
-
-					<li class="menu-node menu-node--collection_lvl_1 js-menu-wrapper"
-					>
-
-
-						<a href="/collection/datchiki-2"
-						   class="menu-link
-                "
-						>
-							Датчики
-						</a>
-
-
-					</li>
-
-					<li class="menu-node menu-node--collection_lvl_1 js-menu-wrapper"
-					>
-
-
-						<a href="/collection/filtry-2"
-						   class="menu-link
-                "
-						>
-							Фильтры
-						</a>
-
-
-					</li>
-
-				</ul>
-
-			</div>
-		</div>
-
-		<div class="panel_block">
+		<!--<div class="panel_block">
 			<h3 class="panel_block-title">
 				Полезные ссылки
 			</h3>
@@ -541,7 +326,7 @@
 
 				</ul>
 			</div>
-		</div>
+		</div>-->
 	</div>
 
     <?php $this->endBody() ?>

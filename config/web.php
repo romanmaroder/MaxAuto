@@ -55,6 +55,7 @@
                 'enableStrictParsing' => false,
                 'rules'               => [
                     'home/<page:\d+>'=>'home/index',
+                    'home/blog/<id:\d+>'=>'blog/view',
                     'product/<id:\d+>'=>'product/view',
                     'category/<id:\d+>'=>'category/view',
                     'search'=> 'category/search',

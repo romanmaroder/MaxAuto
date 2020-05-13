@@ -4,9 +4,9 @@
     namespace app\controllers;
 
 
+    use app\models\Blog;
     use app\models\Category;
     use app\models\Product;
-    use app\models\TopMenu;
     use yii\data\Pagination;
 
     class HomeController extends AppController
@@ -26,5 +26,32 @@
                                      'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();
             return $this->render('index', compact('categories', 'products', 'hits', 'offers', 'pages'));
+        }
+
+        public function actionDelivery()
+        {
+            $this->view->title = 'Доставка и оплата';
+            return $this->render('delivery');
+        }
+
+        public function actionContact()
+        {
+            $this->view->title = 'Контакты';
+            return $this->render('contact');
+        }
+
+        public function actionShop()
+        {
+            $this->view->title = 'О магазине';
+            return $this->render('shop');
+        }
+
+        public function actionBlog()
+        {
+            $this->view->title = 'Блог';
+            $this->view->params['news']= Blog::find()->all();
+            $news =  $this->view->params['news'];
+
+            return $this->render('blog',compact('news'));
         }
     }
