@@ -124,10 +124,22 @@
 						<div class="lg-grid-3 sm-grid-12 lg-right sm-center">
 
 							<div class="contacts editor">
-								<p><a href="tel:+38(066)1963651">+3 8(066)-196-36-51</a></p>
-								<p><a href="tel:+38(071)3632460">+38(071)-363-24-60</a></p>
-								<!--							<p><a href="mailto:max_auto@bk.ru" class="tel">max_auto@bk.ru</a></p>-->
-								<p class="text">c 10:00 до 19:00</p>
+								<p>
+									<span>
+										<i class="fa fa-phone" aria-hidden="true"></i>
+ 									</span>
+									<a href="tel:+38(066)1963651">+3 8(066)-196-36-51</a>
+								</p>
+								<p>
+									<span>
+										<i class="fa fa-phone" aria-hidden="true"></i>
+ 									</span>
+									<a href="tel:+38(071)3632460">+38(071)-363-24-60</a>
+								</p>
+								<p class="text">
+									<i class="fa fa-clock-o" aria-hidden="true"></i>
+									c 10:00 до 19:00
+								</p>
 							</div>
 
 						</div>
@@ -135,80 +147,7 @@
 					</div>
 				</div>
 
-				<div class="wrap row padded-inner-top padded-sides sm-padded-zero-top">
-
-					<div class="section--main_menu row grid-inline padded">
-
-						<div class="lg-grid-9 sm-grid-12">
-
-							<div class="grid-row xs-hidden">
-
-								<ul class="menu menu--main menu--main_lvl_1 menu--horizontal menu--one_line js-menu--main">
-
-									<li class="menu-node menu-node--main_lvl_1">
-
-										<a href="/page/blog.html" class="menu-link">
-											F.A.Q.
-										</a>
-
-									</li>
-
-									<li class="menu-node menu-node--main_lvl_1">
-
-										<a href="/page/o-magazine.html" class="menu-link">
-											О магазине
-										</a>
-
-									</li>
-
-									<li class="menu-node menu-node--main_lvl_1">
-
-										<a href="/page/kontakty.html" class="menu-link">
-											Контакты
-										</a>
-
-									</li>
-
-									<li class="menu-node menu-node--main_lvl_1">
-
-										<a href="/page/dostavka-i-oplata.html" class="menu-link">
-											Доставка и оплата
-										</a>
-
-									</li>
-
-									<li class="menu-node menu-node--main_lvl_1 menu-node--current">
-
-										<a href="/" class="menu-link menu-link--current">
-											Каталог
-										</a>
-
-									</li>
-								</ul>
-							</div>
-
-						</div>
-
-						<div class="lg-grid-3 sm-hidden xs-hidden right">
-
-							<form action="/search" method="get" class="search_widget search_widget--header ">
-
-								<input type="text" name="q" class="search_widget-field js-ajax_search-input" value=""
-									   placeholder="Поиск"/>
-
-								<button type="submit" class="search_widget-submit button--invert">
-									<i class="fa fa-search"></i>
-								</button>
-
-								<!--<div class="ajax_search-wrapper js-ajax_search-wrapper"></div>-->
-
-							</form>
-
-						</div>
-
-					</div>
-
-				</div>
+                <?= $this->render('//layouts/inc/top_menu') ?>
 
 			</div>
 
@@ -221,18 +160,21 @@
 	</section>
 
 	<footer>
-		<div class="section--footer_menus
-              padded-inner-vertical">
+		<div class="section--footer_menus padded-inner-vertical">
 			<div class="wrap row">
 
-				<div class="footer_block
-                    lg-grid-4 sm-grid-6 mc-grid-12
-                    padded-inner">
+				<div class="footer_block footer_hr lg-grid-4 sm-grid-4 xs-grid-12 mc-grid-12 padded-inner sm-center">
 					<ul class="footer_block-content menu menu--footer menu--vertical">
 
 						<li class="menu-node menu-node--footer">
-							<a href="/page/delivery.html" class="menu-link">
-								Доставка
+							<a href="/page/blog.html" class="menu-link">
+								F.A.Q.
+							</a>
+						</li>
+						<li class="menu-node menu-node--footer">
+							<a href="/page/dostavka-i-oplata.html"
+							   class="menu-link">
+								Доставка и оплата
 							</a>
 						</li>
 
@@ -245,21 +187,60 @@
 					</ul>
 				</div>
 
-				<div class="footer_block lg-grid-4 sm-grid-6 mc-grid-12 center sm-right mc-center">
-					<div class="footer_block-content">
+
+				<div class="footer_block footer_hr lg-grid-4 sm-grid-4 xs-grid-12 mc-grid-12 padded-inner center sm-center mc-center">
+					<div class="footer_block-content contacts editor">
+
+						<div class="footer_sidebar_block-title">Мы в соцсетях</div>
+						<div class="footer_sidebar_block--link">
+
+							<a href="https://t.me/" class="footer_menu-link ">
+								<i class="fa fa-telegram fa-2x" aria-hidden="true"></i>
+							</a>
+							<a href="https://viber.click/79380661963651" class="footer_menu-link">
+								<i class="fa fa-viber fa-2x" aria-hidden="true"></i>
+							</a>
+							<a href="https://wapp.click/79+380661963651" class="footer_menu-link">
+								<i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
+							</a>
+							<a href="#" class="footer_menu-link">
+								<i class="fa fa-vk fa-2x" aria-hidden="true"></i>
+							</a>
+						</div>
 					</div>
+
 				</div>
 
-				<div class="footer_block lg-grid-4 sm-grid-6 mc-grid-12 lg-fr md-fr padded-inner right mc-center">
+				<div class="footer_block lg-grid-4 sm-grid-4 xs-grid-12 mc-grid-12 lg-fr md-fr padded-inner sm-center right mc-center">
 					<div class="footer_block-content contacts editor">
-						<p class="tel">+7 (495) 123 45 67</p>
-						<p class="tel">sales@insales.ru</p>
-						<p class="text">c 10:00 до 19:00</p>
+
+						<ul class="footer_block-content menu menu--footer menu--vertical">
+
+							<li class="menu-node menu-node--footer">
+								<span><i class="fa fa-phone" aria-hidden="true"></i>
+
+ </span>
+								<a href="tel:+38(066)1963651" class="footer_menu-link">+3 8(066)-196-36-51</a>
+							</li>
+							<li class="menu-node menu-node--footer">
+								<span><i class="fa fa-phone" aria-hidden="true"></i>
+</span>
+								<a href="tel:+38(071)3632460" class="footer_menu-link">+38(071)-363-24-60</a>
+							</li>
+
+							<li class="menu-node menu-node--footer">
+								<span><i class="fa fa-envelope-o" aria-hidden="true"></i>
+ </span>
+								<a href="mailto:max_auto@bk.ru" class="footer_menu-link">max_auto@bk.ru</a>
+							</li>
+
+						</ul>
+
 					</div>
 
-					<div class="footer_block-content
-                    lg-hidden md-hidden">
-					</div>
+					<!--				<div class="footer_block-content-->
+					<!--                    lg-hidden md-hidden">-->
+					<!--				</div>-->
 				</div>
 			</div>
 		</div>
