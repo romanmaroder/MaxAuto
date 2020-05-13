@@ -29,11 +29,8 @@
 		<meta property="og:title" content="MAX-Авто"/>
 		<meta property="og:image" content=""/>
 		<meta property="og:type" content="website"/>
-		<meta property="og:url" content="http://demo-carbon.myinsales.ru"/>
+		<meta property="og:url" content=""/>
 
-
-		<meta name="keywords" content="MAX-Авто">
-		<meta name="description" content="MAX-Авто">
 
 
 	</head>

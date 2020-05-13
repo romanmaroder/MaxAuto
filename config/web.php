@@ -54,6 +54,9 @@
                 'showScriptName'      => false,
                 'enableStrictParsing' => false,
                 'rules'               => [
+                    'home/<page:\d+>'=>'home/index',
+                    'product/<id:\d+>'=>'product/view',
+                    'category/<id:\d+>'=>'category/view',
                 ],
             ],
 
