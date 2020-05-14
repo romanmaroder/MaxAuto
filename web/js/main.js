@@ -11,7 +11,7 @@ $(function () {
         navSpeed: false,
         navElement: 'div',
         navBaseContainerClass: 'owl-nav slider-control',
-        navClass: [ 'owl-prev slider-left', 'owl-next slider-right' ],
+        navClass: ['owl-prev slider-left', 'owl-next slider-right'],
 
     });
 
@@ -23,6 +23,10 @@ $(function () {
             800: {items: 3},
             1100: {items: 4},
         },
+        loop: true,
+        lazyLoad: true,
+        autoplay: true,
+        autoplayTimeout: 4000,
         slideBy: 'page',
         navClass: ['button', 'button'],
         margin: 32,
@@ -54,29 +58,28 @@ $(function () {
         margin: 32,
     });
 
-    const menuBtn = $('.js-panel-link'),
-        menu    = $('.js-panel--menu');
+    // const menuBtn = $('.js-panel-link'),
+    //     menu = $('.js-panel--menu');
 
-    menuBtn.on('click', function() {
-        if ( $(this).hasClass('is-active') ) {
+    $('.js-panel-link').on('click', function () {
+        if ($(this).hasClass('is-active')) {
             $(this).removeClass('is-active');
-            menu.slideUp();
+            $('.js-panel--menu').slideUp();
         } else {
             $(this).addClass('is-active');
-            menu.slideDown();
+            $('.js-panel--menu').slideDown();
         }
     });
 
     $(document).click(function (e) {
-        if ( !menuBtn.is(e.target) && !menu.is(e.target) && menu.has(e.target).length === 0) {
-            menu.slideUp();
-            menuBtn.removeClass('is-active');
+        if (!$('.js-panel-link').is(e.target) && !$('.js-panel--menu').is(e.target) && $('.js-panel--menu').has(e.target).length === 0) {
+            $('.js-panel--menu').slideUp();
+            $('.js-panel-link').removeClass('is-active');
         };
     });
 
 
-
-    $("ul.tabs-controls").on("click", "li:not(.tabs-node--active)", function() {
+    $("ul.tabs-controls").on("click", "li:not(.tabs-node--active)", function () {
         $(this)
             .addClass("tabs-node--active")
             .siblings()
@@ -90,6 +93,25 @@ $(function () {
 
 
 
+    $('.product-quick_checkout').on('click', function (e) {
+        e.preventDefault();
+
+        $('.m-overlay,  #quick-checkout-dialog').css({"display": "block", "opacity": "1"});
+
+
+    })
+
+    $('.m-modal-close').on('click',function (e) {
+        e.preventDefault();
+        $('.m-overlay,  #quick-checkout-dialog').css({"display": "none", "opacity": "0"});
+        console.log('click');
+    });
+
+    $(document).click(function (e) {
+        if ($('.m-overlay').is(e.target)){
+            $('.m-overlay,  #quick-checkout-dialog').css({"display": "none", "opacity": "0"});
+        }
+    });
 
 
     /*
@@ -134,54 +156,48 @@ $(function () {
 
 // MagicZoomPlus
 
-var mzOptions = {
-    //zoomMode: 'magnifier',
-    rightClick: true,
-    hint: 'always',
-    textHoverZoomHint: 'Наведите для увеличения',
-    textClickZoomHint: 'Нажмите для увеличения',
-    textExpandHint: 'Полноэкранный просмотр',
-    textBtnClose: 'Закрыть',
-    textBtnPrev: 'Предыдущее',
-    textBtnNext: 'Следующее',
-    smoothing: false,
-};
+    var mzOptions = {
+        //zoomMode: 'magnifier',
+        rightClick: true,
+        hint: 'always',
+        textHoverZoomHint: 'Наведите для увеличения',
+        textClickZoomHint: 'Нажмите для увеличения',
+        textExpandHint: 'Полноэкранный просмотр',
+        textBtnClose: 'Закрыть',
+        textBtnPrev: 'Предыдущее',
+        textBtnNext: 'Следующее',
+        smoothing: false,
+    };
 
-var mzMobileOptions = {
-    textHoverZoomHint: 'Нажмите для увеличения',
-    textClickZoomHint: 'Дважды нажмите для увеличения',
-    textExpandHint: '',
-    smoothing: false,
-};
+    var mzMobileOptions = {
+        textHoverZoomHint: 'Нажмите для увеличения',
+        textClickZoomHint: 'Дважды нажмите для увеличения',
+        textExpandHint: '',
+        smoothing: false,
+    };
 
-$(function(){
-    $( '.js-product_gallery-preview_image' ).on( 'tap', function( e ){
-        e.preventDefault();
 
-        var $preview = $(this).parents( '.gallery-image:first' );
-        var large = $preview.data( 'image' );
-        var original = $preview.attr( 'href' );
+        $('.js-product_gallery-preview_image').on('tap', function (e) {
+            e.preventDefault();
 
-        //MagicZoom.update( 'MagicZoom', large, original );
-        setTimeout( function(){
-            MagicZoom.expand( 'MagicZoom' );
-            console.log( 'open' );
-        }, 1000 );
-    });
+            var $preview = $(this).parents('.gallery-image:first');
+            var large = $preview.data('image');
+            var original = $preview.attr('href');
+
+            //MagicZoom.update( 'MagicZoom', large, original );
+            setTimeout(function () {
+                MagicZoom.expand('MagicZoom');
+                console.log('open');
+            }, 1000);
+        });
+
 });
-});
 
 
-
-
-
-
-
-$(document).on( 'click', '.js-scrollTop', function(event){
+$(document).on('click', '.js-scrollTop', function (event) {
     //event.preventDefault();
-    console.log( 'click' );
 
     $('html, body').animate({
         scrollTop: 0
-    }, 400 );
+    }, 400);
 });

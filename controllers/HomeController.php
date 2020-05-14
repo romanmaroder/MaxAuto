@@ -6,6 +6,7 @@
 
     use app\models\Blog;
     use app\models\Category;
+    use app\models\Menu;
     use app\models\Product;
     use yii\data\Pagination;
 
@@ -20,6 +21,9 @@
 
             $category = Category::findOne($id);
             $this->setMeta(\Yii::$app->name, $category->keywords, $category->description);
+
+
+
 
             $query = Product::find();
             $pages = new Pagination(['totalCount'    => $query->count(), 'pageSize' => 8, 'forcePageParam' => false,

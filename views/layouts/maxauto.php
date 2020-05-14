@@ -127,8 +127,8 @@
 					</div>
 				</div>
 
-<!--                --><?//= $this->render('//layouts/inc/menu') ?>
-                <?= $this->render('//menu/index') ?>
+                <?= $this->render('//layouts/inc/menu') ?>
+<!--                --><?//= $this->render('//menu/index') ?>
 
 			</div>
 
@@ -328,7 +328,8 @@
 			</div>
 		</div>-->
 	</div>
-
+	<!--Форма-->
+    <?= $this->render('//layouts/inc/quick-form') ?>
     <?php $this->endBody() ?>
 	</body>
 	</html>

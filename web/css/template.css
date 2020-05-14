@@ -2834,16 +2834,16 @@ body.body--lock_scroll {
  * Core styles
  */
 
-@font-face {
-    font-family: "magictoolbox-thin";
-    font-weight: normal;
-    font-style: normal;
-    src:url("magictoolbox-thin.eot");
-    src:url("magictoolbox-thin.eot?#iefix") format("embedded-opentype"),
-    url("magictoolbox-thin.woff") format("woff"),
-    url("magictoolbox-thin.ttf") format("truetype"),
-    url("magictoolbox-thin.svg#magictoolbox-thin") format("svg");
-}
+/*@font-face {*/
+/*    font-family: "magictoolbox-thin";*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*    src:url("magictoolbox-thin.eot");*/
+/*    src:url("magictoolbox-thin.eot?#iefix") format("embedded-opentype"),*/
+/*    url("magictoolbox-thin.woff") format("woff"),*/
+/*    url("magictoolbox-thin.ttf") format("truetype"),*/
+/*    url("magictoolbox-thin.svg#magictoolbox-thin") format("svg");*/
+/*}*/
 
 .MagicZoom,
 .mz-figure,
@@ -3688,11 +3688,25 @@ button.mz-button.mz-button-close {
     transition: color .25s, border-color .25s, transform .25s !important;
 
 }
+:root:not(.mobile-magic) button.mz-button-prev {
+    transform: rotate(180deg)!important;
+}
+
+
+
 :root:not(.mobile-magic) button.mz-button:hover {
     color: rgba(180, 180, 180, 1) !important;
     border-color: rgba(180, 180, 180, .6) !important;
     -webkit-transform: scale(1) !important;
     transform: scale(1) !important;
+}
+
+
+:root:not(.mobile-magic) button.mz-button-prev:hover {
+    color: rgba(180, 180, 180, 1) !important;
+    border-color: rgba(180, 180, 180, .6) !important;
+    -webkit-transform: scale(1) !important;
+    transform: scale(1) rotate(-180deg) !important;
 }
 .mobile-magic button.mz-button {
     -webkit-transition: -webkit-transform .1s !important;
@@ -3704,9 +3718,9 @@ button.mz-button.mz-button-close {
     transform: scale(.95) !important;
 }
 
-button.mz-button.mz-button-close:before { content: 'X'; }
-button.mz-button.mz-button-prev:before { content: "<";  }
-button.mz-button.mz-button-next:before { content: ">"; }
+button.mz-button.mz-button-close:before { content: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDggNDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0yNS4zODQxIDI0LjcyNDFDMjQuOTkzNyAyNC4zMzM0IDI0Ljk5MzkgMjMuNzAwMiAyNS4zODQ3IDIzLjMwOThMMzcgMTEuNzA1MUwzNi4yOTQzIDExTDI0LjY3OTMgMjIuNjA0NEMyNC4yODg2IDIyLjk5NDcgMjMuNjU1NiAyMi45OTQ0IDIzLjI2NTIgMjIuNjAzOEwxMS43MDUyIDExLjAzNjZMMTEgMTEuNzQyMkwyMi41NTkzIDIzLjMwODdDMjIuOTQ5NyAyMy42OTk0IDIyLjk0OTUgMjQuMzMyNiAyMi41NTg4IDI0LjcyM0wxMS4wMzcgMzYuMjM0MkwxMS43NDI3IDM2LjkzOTNMMjMuMjY0MSAyNS40Mjg0QzIzLjY1NDggMjUuMDM4MSAyNC4yODc5IDI1LjAzODMgMjQuNjc4MiAyNS40Mjg5TDM2LjI0MjEgMzdMMzYuOTQ3MiAzNi4yOTQ0TDI1LjM4NDEgMjQuNzI0MVoiIGZpbGw9IiM5OTk5OTkiLz4KPHBhdGggZD0iTTI1LjM4NDEgMjQuNzI0MUMyNC45OTM3IDI0LjMzMzQgMjQuOTkzOSAyMy43MDAyIDI1LjM4NDcgMjMuMzA5OEwzNyAxMS43MDUxTDM2LjI5NDMgMTFMMjQuNjc5MyAyMi42MDQ0QzI0LjI4ODYgMjIuOTk0NyAyMy42NTU2IDIyLjk5NDQgMjMuMjY1MiAyMi42MDM4TDExLjcwNTIgMTEuMDM2NkwxMSAxMS43NDIyTDIyLjU1OTMgMjMuMzA4N0MyMi45NDk3IDIzLjY5OTQgMjIuOTQ5NSAyNC4zMzI2IDIyLjU1ODggMjQuNzIzTDExLjAzNyAzNi4yMzQyTDExLjc0MjcgMzYuOTM5M0wyMy4yNjQxIDI1LjQyODRDMjMuNjU0OCAyNS4wMzgxIDI0LjI4NzkgMjUuMDM4MyAyNC42NzgyIDI1LjQyODlMMzYuMjQyMSAzN0wzNi45NDcyIDM2LjI5NDRMMjUuMzg0MSAyNC43MjQxWiIgc3Ryb2tlPSIjOTk5OTk5Ii8+Cjwvc3ZnPgo="); }
+button.mz-button.mz-button-prev:before { content:  url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDggNDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xOC43NTkzIDkuMzQ5MjFDMTguMzk5OCA4LjkyOTg4IDE3Ljc2ODUgOC44ODEzMiAxNy4zNDkyIDkuMjQwNzRDMTYuOTI5OSA5LjYwMDE3IDE2Ljg4MTMgMTAuMjMxNSAxNy4yNDA3IDEwLjY1MDhMMTguNzU5MyA5LjM0OTIxWk0zMCAyNEwzMC43NTkzIDI0LjY1MDhDMzEuMDgwMiAyNC4yNzYzIDMxLjA4MDIgMjMuNzIzNyAzMC43NTkzIDIzLjM0OTJMMzAgMjRaTTE3LjI0MDcgMzcuMzQ5MkMxNi44ODEzIDM3Ljc2ODUgMTYuOTI5OSAzOC4zOTk4IDE3LjM0OTIgMzguNzU5M0MxNy43Njg1IDM5LjExODcgMTguMzk5OCAzOS4wNzAxIDE4Ljc1OTMgMzguNjUwOEwxNy4yNDA3IDM3LjM0OTJaTTE3LjI0MDcgMTAuNjUwOEwyOS4yNDA3IDI0LjY1MDhMMzAuNzU5MyAyMy4zNDkyTDE4Ljc1OTMgOS4zNDkyMUwxNy4yNDA3IDEwLjY1MDhaTTI5LjI0MDcgMjMuMzQ5MkwxNy4yNDA3IDM3LjM0OTJMMTguNzU5MyAzOC42NTA4TDMwLjc1OTMgMjQuNjUwOEwyOS4yNDA3IDIzLjM0OTJaIiBmaWxsPSIjOTk5OTk5Ii8+Cjwvc3ZnPgo=);}
+button.mz-button.mz-button-next:before { content: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNDggNDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xOC43NTkzIDkuMzQ5MjFDMTguMzk5OCA4LjkyOTg4IDE3Ljc2ODUgOC44ODEzMiAxNy4zNDkyIDkuMjQwNzRDMTYuOTI5OSA5LjYwMDE3IDE2Ljg4MTMgMTAuMjMxNSAxNy4yNDA3IDEwLjY1MDhMMTguNzU5MyA5LjM0OTIxWk0zMCAyNEwzMC43NTkzIDI0LjY1MDhDMzEuMDgwMiAyNC4yNzYzIDMxLjA4MDIgMjMuNzIzNyAzMC43NTkzIDIzLjM0OTJMMzAgMjRaTTE3LjI0MDcgMzcuMzQ5MkMxNi44ODEzIDM3Ljc2ODUgMTYuOTI5OSAzOC4zOTk4IDE3LjM0OTIgMzguNzU5M0MxNy43Njg1IDM5LjExODcgMTguMzk5OCAzOS4wNzAxIDE4Ljc1OTMgMzguNjUwOEwxNy4yNDA3IDM3LjM0OTJaTTE3LjI0MDcgMTAuNjUwOEwyOS4yNDA3IDI0LjY1MDhMMzAuNzU5MyAyMy4zNDkyTDE4Ljc1OTMgOS4zNDkyMUwxNy4yNDA3IDEwLjY1MDhaTTI5LjI0MDcgMjMuMzQ5MkwxNy4yNDA3IDM3LjM0OTJMMTguNzU5MyAzOC42NTA4TDMwLjc1OTMgMjQuNjUwOEwyOS4yNDA3IDIzLjM0OTJaIiBmaWxsPSIjOTk5OTk5Ii8+Cjwvc3ZnPgo="); }
 
 @media screen and (max-device-width: 767px) {
     button.mz-button-prev,
@@ -3961,7 +3975,7 @@ button.mz-button.mz-button-next:before { content: ">"; }
     overflow: hidden;
     position: absolute;
 
-    font-family: "magictoolbox-thin";
+    /*font-family: "magictoolbox-thin";*/
     font-style: normal;
     font-weight: 200;
     font-variant: normal;
@@ -4505,7 +4519,8 @@ select {
 @media (max-width: 480px) {
     /* line 120, _menu.scss */
     .menu-node--personal_cabinet {
-        width: 100%; } }
+        width: 100%; }
+}
 /* line 140, _menu.scss */
 .menu-link {
     -moz-transition-duration: 0.3s;
@@ -5182,7 +5197,11 @@ h6, .h6 {
 .content-title {
     margin-bottom: 2rem;
     line-height: 1.4; }
-
+@media (max-width: 680px) {
+    .product-title.content-title {
+        font-size: 20px;
+    }
+}
 /* line 2, _layouts.checkout.scss */
 .checkout #top_info {
     padding: 0.5rem 0;
@@ -5584,6 +5603,9 @@ h6, .h6 {
 /* line 16, _product.scss */
 .product-presence_field {
     color: #56D91E; }
+.product-presence_field-price {
+    color:#363636;
+}
 /* line 18, _product.scss */
 .product-presence_field--sell_off {
     color: #363636; }
@@ -6181,6 +6203,8 @@ footer .editor a:hover {
 
 /* payments */
 
-
-
+.fa-whatsapp::before
+{
+    font-size: 36px;
+}
 

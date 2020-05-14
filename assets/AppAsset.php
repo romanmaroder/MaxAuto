@@ -21,6 +21,7 @@
         public $baseUrl = '@web';
         public $css = [
             'css/template.css',
+            'css/jquery_modal.css',
             'libs/owlcarousel/owl.carousel.min.css',
             'libs/owlcarousel/owl.theme.default.min.css',
             'libs/fa-viber-master/fa-viber.css',
@@ -28,9 +29,9 @@
             '//fonts.googleapis.com/css?family=Roboto:400,300,500,500italic,400italic,300italic&subset=latin,cyrillic',
         ];
         public $js = [
-            'js/modernizr.js',
             '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
-            '//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js',
+//            '//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js',
+            'js/modernizr.js',
             'libs/owlcarousel/owl.carousel.min.js',
             'js/template.js',
             'js/main.js'
