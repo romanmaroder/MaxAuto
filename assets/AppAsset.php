@@ -29,8 +29,8 @@
             '//fonts.googleapis.com/css?family=Roboto:400,300,500,500italic,400italic,300italic&subset=latin,cyrillic',
         ];
         public $js = [
-            '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
-//            '//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js',
+//            '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
+            '//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js',
             'js/modernizr.js',
             'libs/owlcarousel/owl.carousel.min.js',
             'js/template.js',
@@ -38,6 +38,7 @@
         ];
         public $depends = [
             'yii\web\YiiAsset',
+//            'yii\bootstrap\BootstrapAsset',
 
         ];
     }

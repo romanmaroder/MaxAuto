@@ -4792,7 +4792,73 @@ html:not(.js) .menu--one_line {
 @media (max-width: 480px) {
     /* line 6, _tabs.scss */
     .tabs-node {
-        margin-right: 0; } }
+        margin-right: 0;
+    }
+
+}
+/*@media (min-width: 640px) and (max-width: 905px) {*/
+/*    !* line 6, _tabs.scss *!*/
+/*    .tabs-node {*/
+/*        font-size: 15px;}*/
+/*    .property-title,*/
+/*    .property-values{*/
+/*        font-size: 11px;*/
+/*    }*/
+/*}*/
+
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px)
+and (orientation : landscape) {
+    .tabs-node {
+        font-size: 12px;}
+    .property-title,
+    .property-values{
+        font-size: 11px;
+    }
+}
+@media only screen
+and (min-device-width : 414px)
+and (max-device-width : 736px)
+and (orientation : landscape) {
+    .tabs-node {
+        font-size: 12px;}
+    .property-title,
+    .property-values{
+        font-size: 12px;
+    }
+}
+
+@media only screen
+and (min-device-width : 640px)
+and (max-device-width : 767px)
+and (orientation : landscape)
+{
+    .tabs-node {
+        font-size: 11px;}
+    .property-title,
+    .property-values{
+        font-size: 11px;
+    }
+}
+
+
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+    /*and (orientation : portrait)*/
+and (-webkit-min-device-pixel-ratio: 1)  {
+    .tabs-node {
+        font-size: 14px;}
+    .property-title,
+    .property-values{
+        font-size: 13px;
+    }
+}
+
+
 /* line 22, _tabs.scss */
 .tabs-node:hover {
     border-bottom-color: #363636;
@@ -5018,7 +5084,7 @@ html:not(.js) .menu--one_line {
 .header .editor a {
     color: #363636;
     text-decoration: none;
-border-bottom: none;}
+    border-bottom: none;}
 /* line 18, _header.scss */
 .header .editor a:hover {
     color: #56D91E; }
@@ -5162,8 +5228,15 @@ h6, .h6 {
     margin-bottom: 1rem;
     line-height: 1.4;
 }
+.footer_sidebar_block--link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .footer_sidebar_block--link .footer_menu-link {
     padding: 0 5px;
+    height: 32px;
+    width: 32px;
 }
 .footer_sidebar_block--link .footer_menu-link:first-child {
     padding-left: 0;
@@ -5664,6 +5737,7 @@ h6, .h6 {
 /* line 92, _product.scss */
 .property-title {
     word-wrap: break-word;
+    white-space: nowrap;
     font-weight: 500; }
 /* line 97, _product.scss */
 .property-values {
@@ -6113,7 +6187,11 @@ footer .editor a {
 /* line 14, _footer.scss */
 footer a:hover,
 footer .editor a:hover {
-    color: #56D91E; }
+    color: #56D91E;}
+#vk:hover{
+    fill:#56D91E;
+    transition-duration: 0.3s;
+}
 
 /* line 25, _footer.scss */
 .insales-copyright a {
