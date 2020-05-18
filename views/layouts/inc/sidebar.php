@@ -1,18 +1,19 @@
 <div class="lg-grid-3 md-grid-3 sm-hidden xs-hidden padded-inner-sides lg-fr md-fr center">
 
     <div class="sidebar">
-<?php $news = $this->params['news'] ?>
-        <?php if (!empty($news)): ?>
+<?php $lastNews = $this->params['lastNews'] ?>
+
+        <?php if (!empty($lastNews)): ?>
             <div class="sidebar_block">
                 <div class="sidebar_block-title">
                     Новые статьи
                 </div>
                 <div class="sidebar_block-content-news">
-                    <?php foreach ( $news as $post ): ?>
+                    <?php foreach ( $lastNews as $post ): ?>
 
                         <div class="article_preview article_preview--list">
                             <a href="<?= \yii\helpers\Url::to(['blog/view','id'=> $post->id]) ?>" class="article_preview-title">
-                                <?= $post->title ?> магазина
+                                <?= $post->title ?>
                             </a>
                         </div>
                     <?php endforeach; ?>

@@ -6,11 +6,7 @@
 
     use app\models\Blog;
     use app\models\Category;
-    use app\models\ContactForm;
-    use app\models\Post;
     use app\models\Product;
-    use Codeception\Command\Run;
-    use Yii;
     use yii\data\Pagination;
 
     class HomeController extends AppController
@@ -60,9 +56,11 @@
             $this->setMeta('Блог');
 
             $this->view->params['news'] = Blog::find()->all();
+            $this->view->params['lastNews'] = Blog::find()->orderBy('id desc')->limit(3)->all();
             $news = $this->view->params['news'];
+            $lastNews = $this->view->params['lastNews'];
 
-            return $this->render('blog', compact('news'));
+            return $this->render('blog', compact('news','lastNews'));
         }
 
     }

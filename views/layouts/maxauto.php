@@ -129,7 +129,7 @@
 				</div>
 
                 <?= $this->render('//layouts/inc/menu') ?>
-<!--                --><?//= $this->render('//menu/index') ?>
+
 
 			</div>
 

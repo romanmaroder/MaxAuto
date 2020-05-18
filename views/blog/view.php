@@ -4,6 +4,7 @@
     use yii\helpers\Url;
 
 ?>
+
 <?= $this->render('//layouts/inc/sidebar') ?>
 <div class="article row lg-grid-9 md-grid-9 sm-grid-12 xs-grid-12 padded-inner-sides">
 

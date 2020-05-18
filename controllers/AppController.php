@@ -4,10 +4,7 @@
     namespace app\controllers;
 
 
-    use app\models\ContactForm;
     use app\models\Menu;
-    use Yii;
-    use yii\helpers\Html;
     use yii\web\Controller;
 
     class AppController extends Controller
