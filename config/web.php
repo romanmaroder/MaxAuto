@@ -16,6 +16,16 @@
             '@npm'   => '@vendor/npm-asset',
         ],
         'components'   => [
+//            'assetManager' => [
+//                'bundles' => [
+//                    'yii\web\JqueryAsset' => [
+//                        'sourcePath' => null,   // не опубликовывать комплект
+//                        'js'         => [
+//                            '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
+//                        ]
+//                    ],
+//                ],
+//            ],
             'request'      => [
                 // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
                 'cookieValidationKey' => 'MkpZA1kzxOMKv32aXJCjM0bV5TMGrAPd',
@@ -36,7 +46,21 @@
                 // send all mails to a file by default. You have to set
                 // 'useFileTransport' to false and configure a transport
                 // for the mailer to send real emails.
-                'useFileTransport' => true,
+                'useFileTransport' => false,
+                'transport'        => [
+                    'class'         => 'Swift_SmtpTransport',
+                    'host'          => 'smtp.yandex.ru',
+                    'username'      => 'roma12041985@yandex.ru',
+                    'password'      => '12APR1985',
+                    'port'          => '587', // 465
+                    'encryption'    => 'tls', // tls
+                    'streamOptions' => [
+                        'ssl' => [
+                            'verify_peer'      => false,
+                            'verify_peer_name' => false
+                        ]
+                    ]
+                ],
             ],
             'log'          => [
                 'traceLevel' => YII_DEBUG ? 3 : 0,

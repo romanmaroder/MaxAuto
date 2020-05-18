@@ -3,6 +3,7 @@
     use app\assets\AppAsset;
     use yii\helpers\Html;
     use yii\helpers\Url;
+    use app\components\ModalWidget;
 
     AppAsset::register($this);
 ?>
@@ -185,7 +186,12 @@
 								<i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
 							</a>
 							<a href="#" class="footer_menu-link">
-								<i class="fa fa-vk fa-2x" aria-hidden="true"></i>
+								<svg enable-background="new 0 0 50 50" id="vk" version="1.1" viewBox="0 0 50 50" xml:space="preserve" width="32px" height="32px" fill="#fff"
+									 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <path d="M26,34c1,0,1-1.4,1-2c0-1,1-2,2-2s2.7,1.7,4,3c1,1,1,1,2,1s3,0,3,0s2-0.1,2-2c0-0.6-0.7-1.7-3-4  c-2-2-3-1,0-5c1.8-2.5,3.2-4.7,3-5.3c-0.2-0.6-5.3-1.6-6-0.7c-2,3-2.4,3.7-3,5c-1,2-1.1,3-2,3c-0.9,0-1-1.9-1-3c0-3.3,0.5-5.6-1-6  c0,0-2,0-3,0c-1.6,0-3,1-3,1s-1.2,1-1,1c0.3,0,2-0.4,2,1c0,1,0,2,0,2s0,4-1,4c-1,0-3-4-5-7c-0.8-1.2-1-1-2-1c-1.1,0-2,0-3,0  c-1,0-1.1,0.6-1,1c2,5,3.4,8.1,7.2,12.1c3.5,3.6,5.8,3.8,7.8,3.9C25.5,34,25,34,26,34z"
+	/>
+									<path d="M25,1C11.7,1,1,11.7,1,25s10.7,24,24,24s24-10.7,24-24S38.3,1,25,1z M25,44C14.5,44,6,35.5,6,25S14.5,6,25,6  s19,8.5,19,19S35.5,44,25,44z"
+									/></svg>
 							</a>
 						</div>
 					</div>
@@ -230,106 +236,13 @@
 				type="button"></button>
 
 	</footer>
+	<!--	Мобильное меню-->
+    <?= $this->render('//layouts/inc/menu-mobile') ?>
 
-	<div class="panel panel--menu js-panel--menu">
 
-		<div class="panel_block">
-			<h3 class="panel_block-title">
-				Главное меню
-			</h3>
-
-			<div class="panel_block-content">
-
-				<ul class="menu menu--main menu--mobile_panel menu--vertical">
-
-					<li class="menu-node">
-						<a href="<?= Url::to(['blog/index']) ?>"
-						   class="menu-link">
-							Статьи
-						</a>
-					</li>
-
-					<li class="menu-node">
-						<a href="<?= Url::to(['shop/index']) ?>"
-						   class="menu-link">
-							О магазине
-						</a>
-					</li>
-
-					<li class="menu-node">
-						<a href="<?= Url::to(['contact/index']) ?>"
-						   class="menu-link">
-							Контакты
-						</a>
-					</li>
-
-					<li class="menu-node">
-						<a href="<?= Url::to(['delivery/index']) ?>"
-						   class="menu-link">
-							Доставка и оплата
-						</a>
-					</li>
-
-					<li class="menu-node menu-node--current">
-						<a href="<?= Url::home() ?>"
-						   class="menu-link menu-link--current">
-							Каталог
-						</a>
-					</li>
-
-				</ul>
-
-			</div>
-		</div>
-
-		<!--<div class="panel_block">
-			<h3 class="panel_block-title">
-				Полезные ссылки
-			</h3>
-
-			<div class="panel_block-content">
-				<ul class="menu menu--vertical menu--mobile_panel">
-
-					<li class="menu-node">
-						<a href="/blogs/blog"
-						   class="menu-link">
-							Статьи
-						</a>
-					</li>
-
-					<li class="menu-node">
-						<a href="/page/delivery.html"
-						   class="menu-link"
-						>
-							Доставка
-						</a>
-					</li>
-
-					<li class="menu-node ">
-						<a href="/page/feedback.html"
-						   class="menu-link">
-							Обратная связь
-						</a>
-					</li>
-
-					<li class="menu-node">
-						<a href="/page/delivery.html" class="menu-link">
-							Доставка
-						</a>
-					</li>
-
-					<li class="menu-node">
-						<a href="/page/feedback.html" class="menu-link">
-							Обратная связь
-						</a>
-					</li>
-
-				</ul>
-			</div>
-		</div>-->
-	</div>
 	<!--Форма-->
-    <?= $this->render('//layouts/inc/quick-form') ?>
+    <?= ModalWidget::widget([]) ?>
+
     <?php $this->endBody() ?>
 	</body>
 	</html>

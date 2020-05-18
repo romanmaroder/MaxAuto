@@ -62,7 +62,7 @@ use yii\helpers\Html;
 									</a>
 								</div>
 
-								<form action="/cart_items" class="product_preview-form row">
+								<form action="home/index" class="product_preview-form row">
 
 									<div class="product_preview-prices prices lg-grid-12">
 										<div class="prices-current">
@@ -70,13 +70,13 @@ use yii\helpers\Html;
 										</div>
 									</div>
 
-									<input type="hidden" name="variant_id" value="85226247">
+									<input type="hidden" name="product_title" value="<?= $product->title ?>">
+									<input type="hidden" name="product_article" value="<?= $product->article ?>">
 
 
-									<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy" data-quick-checkout="" title="<?= $product->title ?>">
+									<button class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy"  title="<?= $product->title ?>">
 										Быстрый заказ
-									</p>
-
+									</button>
 								</form>
 
 								<div class="product_preview-title">

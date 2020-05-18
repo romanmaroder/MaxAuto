@@ -34,7 +34,10 @@
 			<div class="gallery-large_image sm-hidden xs-hidden">
 				<a href="<?= Url::to(["@web/products/{$product->image_1}"]) ?>" alt="<?= $product->title ?>" id="MagicZoom"
 				   class="MagicZoom"
-				   data-options="textHoverZoomHint: Наведите для увеличения; textExpandHint: Полноэкранный просмотр;
+				   data-options="hint:always;
+				   textHoverZoomHint: Наведите для увеличения;
+				    textClickZoomHint: Нажмите для увеличения;
+				    textExpandHint: Полноэкранный просмотр;"
 					<figure class="mz-figure mz-hover-zoom mz-ready">
                         <?= Html::img("@web/products/{$product->image_1}", ['style' => 'max-width: 480px; max-height: 480px;']) ?>
 
@@ -57,6 +60,7 @@
 						<a href="<?= Url::to(["@web/products/{$product->image_1}"]) ?>"
 						   class="gallery-image gallery-image--current image-square mz-thumb-selected mz-thumb"
 						   alt="" title="" data-zoom-id="MagicZoom"
+
 						   data-image="<?= Url::to(["@web/products/{$product->image_1}"]) ?>">
 
                             <?= Html::img("@web/products/{$product->image_1}", ['class' => 'sm-hidden xs-hidden']) ?>
@@ -130,7 +134,7 @@
 
 	</div>
 
-	<div class="tabs lg-grid-6 xs-grid-12 lg-padded-left sm-padded-zero-left padded-inner-bottom">
+	<div class="tabs lg-grid-6 xs-grid-12 lg-padded-left sm-padded-left padded-inner-bottom">
 		<ul class="tabs-controls tabs-controls--horizontal">
 
 			<li class="tabs-node tabs-node--active mc-grid-12" data-params="target: '#description'">
@@ -205,7 +209,7 @@
 
 				<tr>
 					<td class="property-title lg-grid-3  xs-grid-4 mc-grid-12 padded-right padded-bottom mc-padded-zero-right mc-padded-top">
-						Комплектация :
+						Комплектация:
 					</td>
                     <?php if ( $product->equipment ) : ?>
 						<td class="property-values lg-grid-9 xs-grid-8 mc-grid-12 padded-left padded-bottom mc-padded-zero-left">
@@ -220,7 +224,7 @@
 
 				<tr>
 					<td class="property-title lg-grid-3  xs-grid-4 mc-grid-12 padded-right padded-bottom mc-padded-zero-right mc-padded-top">
-						Подходит :
+						Подходит:
 					</td>
                     <?php if ( $product->applies ) : ?>
 						<td class="property-values lg-grid-9 xs-grid-8 mc-grid-12 padded-left padded-bottom mc-padded-zero-left">
@@ -277,7 +281,7 @@
 
 				<tr>
 					<td class="property-title lg-grid-3  xs-grid-4 mc-grid-12 padded-right padded-bottom mc-padded-zero-right mc-padded-top">
-						Производитель
+						Производитель:
 					</td>
                     <?php if ( $product->production ) : ?>
 						<td class="property-values lg-grid-9 xs-grid-8 mc-grid-12 padded-left padded-bottom mc-padded-zero-left">
@@ -313,9 +317,12 @@
 			</p>
 			<br>
 			<p>Или заполнив контактную форму</p>
-			<p class="product-quick_checkout product-buy button button--buy_invert button--large mc-grid-12 inline-middle" data-quick-checkout="">
-          Быстрый заказ
-        </p>
+
+
+			<p class="product-quick_checkout product-buy button button--buy_invert button--large mc-grid-12 inline-middle" data-title="<?= $product->title ?>" data-article="<?= $product->article ?>" title="<?= $product->title ?>">
+				Быстрый заказ
+			</p>
+
 
 		</div>
 	</div>
@@ -372,24 +379,11 @@
 								</a>
 							</div>
 						</div>
-
 					</div>
 
                 <?php endforeach; ?>
 
-				<div class="owl-nav disabled">
-					<button type="button" role="presentation" class="button"><span aria-label="Previous">‹</span>
-					</button>
-					<button type="button" role="presentation" class="button"><span aria-label="Next">›</span></button>
-				</div>
-				<div class="owl-dots disabled">
-					<button role="button" class="owl-dot active"><span></span></button>
-				</div>
 			</div>
-
 		</div>
-
 	</div>
-
-
 </div>

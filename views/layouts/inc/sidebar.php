@@ -11,7 +11,7 @@
                     <?php foreach ( $news as $post ): ?>
 
                         <div class="article_preview article_preview--list">
-                            <a href="<?= \yii\helpers\Url::to(['blog/view','ud'=> $post->id]) ?>" class="article_preview-title">
+                            <a href="<?= \yii\helpers\Url::to(['blog/view','id'=> $post->id]) ?>" class="article_preview-title">
                                 <?= $post->title ?> магазина
                             </a>
                         </div>
@@ -26,26 +26,29 @@
             <div class="sidebar_block-title">Группа ВКонтакте</div>
             <div class="sidebar_block-content editor">
                 <p>
-                    <script src="//vk.com/js/api/openapi.js?121" type="text/javascript"></script>
+                    <?php $this->registerJsFile('https://vk.com/js/api/openapi.js?168',['position' => yii\web\View::POS_HEAD,]) ?>
                 </p>
                 <!-- VK Widget -->
                 <div id="vk_groups"></div>
                 <p>
-                    <script type="text/javascript">// <![CDATA[
-                        VK.Widgets.Group("vk_groups", {
+                    <?php
+                        $vk_widjet = <<<JS
+VK.Widgets.Group("vk_groups", {
                             mode: 0,
                             width: "220",
                             height: "400",
                             color1: 'FFFFFF',
                             color2: '2A7A35',
                             color3: '429E1A'
-                        }, 15902899);
-                        // ]]></script>
+                        }, 51608770);
+JS;
+                        $this->registerJs($vk_widjet, $position = yii\web\View::POS_READY, $key = null);
+                    ?>
+
                 </p>
             </div>
         </div>
-
-        <div class="sidebar_block">
+   <div class="sidebar_block">
             <div class="sidebar_block-title">Мессенджеры</div>
             <div class="sidebar_block-content editor">
 

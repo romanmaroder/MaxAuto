@@ -28,42 +28,7 @@
                     </li>
 
                     <?php  endforeach;?>
-<!--
-                    <li class="menu-node menu-node--main_lvl_1">
 
-                        <a href="<?/*= Url::to(['home/shop']) */?>"
-                           class="menu-link <?php /*if ( $this->context->id == 'shop' ) echo "menu-link--current" */?>">
-                            О магазине
-                        </a>
-
-                    </li>
-
-                    <li class="menu-node menu-node--main_lvl_1">
-
-                        <a href="<?/*= Url::to(['home/contact']) */?>"
-                           class="menu-link <?php /*if ( $this->context->id == 'contact' ) echo "menu-link--current" */?>">
-                            Контакты
-                        </a>
-
-                    </li>
-
-                    <li class="menu-node menu-node--main_lvl_1">
-
-                        <a href="<?/*= Url::to(['home/delivery']) */?>"
-                           class="menu-link  <?php /*if ( $this->context->route== 'home/delivery' ) echo "menu-link--current" */?>">
-                            Доставка и оплата
-                        </a>
-
-                    </li>
-
-                    <li class="menu-node menu-node--main_lvl_1">
-
-                        <a href="<?/*= Url::to(['home/index']) */?>"
-                           class="menu-link  <?php /*if ( $this->context->route == 'home/index' ) echo "menu-link--current" */?>">
-                            Каталог
-                        </a>
-
-                    </li>-->
                 </ul>
             </div>
 

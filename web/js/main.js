@@ -23,8 +23,8 @@ $(function () {
             800: {items: 3},
             1100: {items: 4},
         },
-        loop: true,
-        lazyLoad: true,
+        loop:true,
+        autoplayHoverPause:true,
         autoplay: true,
         autoplayTimeout: 4000,
         slideBy: 'page',
@@ -101,12 +101,14 @@ $(function () {
 
     })
 
-    $('.m-modal-close').on('click',function (e) {
+    $(document).on('click','.m-modal-close',function (e) {
         e.preventDefault();
         $('.m-overlay,  #quick-checkout-dialog').css({"display": "none", "opacity": "0"});
-        console.log('click');
     });
-
+    $(document).on('click','#answer, .answer',function (e) {
+        e.preventDefault();
+        location.reload();
+    });
     $(document).click(function (e) {
         if ($('.m-overlay').is(e.target)){
             $('.m-overlay,  #quick-checkout-dialog').css({"display": "none", "opacity": "0"});
@@ -164,15 +166,15 @@ $(function () {
         textClickZoomHint: 'Нажмите для увеличения',
         textExpandHint: 'Полноэкранный просмотр',
         textBtnClose: 'Закрыть',
-        textBtnPrev: 'Предыдущее',
-        textBtnNext: 'Следующее',
+        // textBtnPrev: 'Предыдущее',
+        // textBtnNext: 'Следующее',
         smoothing: false,
     };
 
     var mzMobileOptions = {
         textHoverZoomHint: 'Нажмите для увеличения',
         textClickZoomHint: 'Дважды нажмите для увеличения',
-        textExpandHint: '',
+        textExpandHint: 'Полноэкранный просмотр',
         smoothing: false,
     };
 
