@@ -12,9 +12,19 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'category_id')->textInput() ?>
-
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList(['1'=>'Товар','2'=>'Хиты продаж','3'=>'Акции'])?>
+
+    <?= $form->field($model, 'availability')->dropDownList(['Есть в наличии','Нет в наличии']) ?>
+
+    <?= $form->field($model, 'hits')->dropDownList(['Нет','Да']) ?>
+
+    <?= $form->field($model, 'sale')->dropDownList(['Нет','Да'])?>
+
+    <?= $form->field($model, 'discount')->textInput() ?>
+
+    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'article')->textInput() ?>
 
@@ -30,15 +40,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'applies')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'availability')->textInput() ?>
-
-    <?= $form->field($model, 'sale')->textInput() ?>
-
-    <?= $form->field($model, 'discount')->textInput() ?>
-
-    <?= $form->field($model, 'hits')->textInput() ?>
 
     <?= $form->field($model, 'image_1')->textInput(['maxlength' => true]) ?>
 
@@ -55,7 +57,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

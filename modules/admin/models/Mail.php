@@ -30,8 +30,10 @@ class Mail extends \yii\db\ActiveRecord
     {
         return [
             [['message'], 'string'],
+            [['status'], 'integer'],
             [['name', 'email'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 20],
+
         ];
     }
 
@@ -42,10 +44,11 @@ class Mail extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Ф.И.О',
             'email' => 'Email',
-            'message' => 'Message',
-            'phone' => 'Phone',
+            'message' => 'Сообщение',
+            'phone' => 'Телефон',
+            'status' => 'Статус',
         ];
     }
 }

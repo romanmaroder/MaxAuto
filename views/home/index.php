@@ -150,24 +150,24 @@ use yii\helpers\Html;
 
 										<div class="product_preview-prices prices lg-grid-12">
 											<div class="prices-current">
-                                                <?= $product->price ?> руб
+                                                <?= $hit->price ?> руб
 											</div>
 										</div>
 
 										<input type="hidden" name="variant_id" value="85226247">
 
 
-										<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy" data-quick-checkout="" title="<?= $product->title ?>">
+										<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy" data-quick-checkout="" title="<?= $hit->title ?>">
 											Быстрый заказ
 										</p>
 
 									</form>
 
 									<div class="product_preview-title">
-										<a href="<?= Url::to(['product/view', 'id' => $product->id]) ?>"
+										<a href="<?= Url::to(['product/view', 'id' => $hit->id]) ?>"
 										   class="product_preview-link"
-										   title="<?= $product->title ?>">
-                                            <?= $product->title ?>
+										   title="<?= $hit->title ?>">
+                                            <?= $hit->title ?>
 										</a>
 									</div>
 								</div>
@@ -221,7 +221,7 @@ use yii\helpers\Html;
 
 									<input type="hidden" name="variant_id" value="85226247">
 
-									<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy" data-quick-checkout="" title="<?= $product->title ?>">
+									<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy" data-quick-checkout="" title="<?= $offer->title ?>">
 										Быстрый заказ
 									</p>
 

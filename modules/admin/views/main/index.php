@@ -39,6 +39,24 @@ $this->params['breadcrumbs'][]= $this->title;
 		</div>
 	</div>
 
+	<?php $mails = $this->params['mails'] ?>
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-yellow">
+			<div class="inner">
+				<h3><?= $mails ?></h3>
+
+				<p>E-mail клиентов</p>
+			</div>
+			<div class="icon">
+				<i class="ion ion-person-add"></i>
+			</div>
+			<a href="<?= Url::to(['mail/index']) ?>" class="small-box-footer">
+				К списку писем <i class="fa fa-arrow-circle-right"></i>
+			</a>
+		</div>
+	</div>
+
 
 </div>
 
@@ -61,7 +79,7 @@ $this->params['breadcrumbs'][]= $this->title;
 			<ul class="products-list product-list-in-box">
 				<li class="item">
 					<div class="product-info" style="margin-left: 0">
-						<a href="<?= Url::to(['information/contact']) ?>" class="product-title">Контакты
+						<a href="<?= Url::to(['info/index']) ?>" class="product-title">Контакты
 							</a>
 						<span class="product-description">
                           Телефоны, email, адрес, время работы
@@ -71,7 +89,7 @@ $this->params['breadcrumbs'][]= $this->title;
 				<!-- /.item -->
 				<li class="item">
 					<div class="product-info" style="margin-left: 0">
-						<a href="<?= Url::to(['information/delivery']) ?>" class="product-title">Доставка и оплата
+						<a href="<?= Url::to(['delivery/index']) ?>" class="product-title">Доставка и оплата
 						</a>
 						<span class="product-description">
                           Раздел "Доставка и оплата"
@@ -81,7 +99,7 @@ $this->params['breadcrumbs'][]= $this->title;
 				<!-- /.item -->
 				<li class="item">
 					<div class="product-info" style="margin-left: 0">
-						<a href="<?= Url::to(['information/shop']) ?>" class="product-title">О магазине
+						<a href="<?= Url::to(['shop/index']) ?>" class="product-title">О магазине
 						</a>
 						<span class="product-description">
                           Раздел "О магазине"

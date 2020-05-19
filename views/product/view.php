@@ -130,6 +130,11 @@
 			<h3 class="product-presence_field js-product-presence">
 				<span class="product-presence_field-price">Цена: </span><?= $product->price ?> ₽.
 			</h3>
+            <?php if ( !empty($product->availability) ): ?>
+				<span class="product-presence_field-price"><?= $product->availability ?></span>
+            <?php else: ?>
+				<span class="product-presence_field-price">-</span>
+            <?php endif; ?>
 		</div>
 
 	</div>
@@ -137,13 +142,13 @@
 	<div class="tabs lg-grid-6 xs-grid-12 lg-padded-left sm-padded-left padded-inner-bottom">
 		<ul class="tabs-controls tabs-controls--horizontal">
 
-			<li class="tabs-node tabs-node--active mc-grid-12" data-params="target: '#description'">
-				Описание
+			<li class="tabs-node tabs-node--active mc-grid-12" data-params="target: '#characteristics'">
+				Характеристики
 			</li>
 
 
-			<li class="tabs-node mc-grid-12" data-params="target: '#characteristics'">
-				Характеристики
+			<li class="tabs-node  mc-grid-12" data-params="target: '#description'">
+				Описание
 			</li>
 
 			<li class="tabs-node mc-grid-12" data-params="target: '#characteristics'">
@@ -152,29 +157,13 @@
 
 		</ul>
 
-		<!--Описание-->
 
-		<div id="description" class="tabs-content tabs-content--active">
+		<!--Характеристики-->
+
+		<div id="characteristics" class="tabs-content tabs-content--active">
 
 			<table class="product-properties lg-grid-12">
 				<tbody>
-				<tr>
-
-					<td class="property-title lg-grid-3  xs-grid-4 mc-grid-12  padded-right padded-bottom mc-padded-zero-right mc-padded-top">
-						Наличие:
-					</td>
-
-                    <?php if ( !empty($product->availability) ): ?>
-						<td class="property-values lg-grid-9 xs-grid-8 mc-grid-12 padded-left padded-bottom mc-padded-zero-left">
-							<span> <?= $product->availability ?></span>
-						</td>
-                    <?php else: ?>
-						<td class="property-values lg-grid-9 xs-grid-8 mc-grid-12 padded-left padded-bottom mc-padded-zero-left">
-							-
-						</td>
-                    <?php endif; ?>
-				</tr>
-
 				<tr>
 
 					<td class="property-title lg-grid-3  xs-grid-4 mc-grid-12  padded-right padded-bottom mc-padded-zero-right mc-padded-top">
@@ -242,8 +231,8 @@
 
 		</div>
 
-		<!--Характеристики-->
-		<div id="characteristics" class="tabs-content row">
+		<!--Описание-->
+		<div id="description" class="tabs-content row">
 
 			<table class="product-properties lg-grid-12">
 				<tbody>
@@ -294,12 +283,17 @@
                     <?php endif; ?>
 				</tr>
 
+				<tr>
+					<td class="property-values lg-grid-12  xs-grid-12 mc-grid-12 padded-right padded-bottom mc-padded-zero-right mc-padded-top">
+                        <?= $product->content ?>
+					</td>
+				</tr>
 				</tbody>
 			</table>
 		</div>
 
 		<!--Заказ-->
-		<div id="characteristics" class="tabs-content row">
+		<div id="order" class="tabs-content row">
 			<p>Данный товар Вы можете заказать по телефонам:</p>
 			<br>
 			<p>

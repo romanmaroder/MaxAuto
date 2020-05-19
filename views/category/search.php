@@ -63,10 +63,10 @@
 
                         <input type="hidden" name="variant_id" value="85226247">
 
-                        <button class="product_preview-button button button--buy lg-grid-12 js-buy"
-                                title="<?= $product->title ?>">
-                            Купить
-                        </button>
+                        <button class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy"
+										  title="<?= $product->title ?>">
+							Быстрый заказ
+						</button>
 
                     </form>
 

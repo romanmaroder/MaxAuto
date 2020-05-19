@@ -23,6 +23,7 @@
 
 
             $query = Product::find()->where(['category_id' => $id]);
+
             $pages = new Pagination(['totalCount'    => $query->count(), 'pageSize' => 8, 'forcePageParam' => false,
                                      'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();

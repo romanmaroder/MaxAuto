@@ -28,11 +28,31 @@
     <h1 class="page-title content-title"><?= $this->title ?></h1>
 
 
-
+<?php if (!empty($text)): ?>
     <div class="page-content editor">
-        <p>Наш коллектив - это команда молодых профессионалов, постоянно изучающая потребности наших клиентов.<br>- В своей работе мы стараемся максимально учитывать Ваши запросы, обеспечивая высокий уровень сервиса и оптимальный набор услуг.<br>- На сегодняшний день мы предлагаем покупателям полный ассортимент уникальных тюнинг аксессуаров для авто из США по уникальным ценам.</p>
+		<?php foreach ($text as $item): ?>
+        <p><?= $item->content ?></p>
+		<?php endforeach; ?>
     </div>
-
-
+<?php else: ?>
+	<div class="page-content editor">
+			<p>Информацию о магазине Вы можете узнать у менеджера.</p>
+			<p>Телефоны для справок: </p>
+			<div class="contacts editor">
+				<p>
+				<span>
+					<i class="fa fa-phone" aria-hidden="true"></i>
+ 				</span>
+					<a href="tel:+38(066)1963651">+3 8(066)-196-36-51</a>
+				</p>
+				<p>
+					<span>
+						<i class="fa fa-phone" aria-hidden="true"></i>
+					</span>
+					<a href="tel:+38(071)3632460">+38(071)-363-24-60</a>
+				</p>
+			</div>
+	</div>
+<?php endif; ?>
 </div>
 

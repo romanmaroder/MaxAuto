@@ -26,31 +26,55 @@
                     'columns'      => [
 //            ['class' => 'yii\grid\SerialColumn'],
 
-'id',
-//'category_id',
-'title',
-//'article',
-//'material',
-//'production',
-//'engine_type',
-//'engine_size',
-//'equipment:ntext',
-//'applies:ntext',
-'price',
-'availability',
-'sale',
-'discount',
-'hits',
-//'image_1',
-//'image_2',
-//'image_3',
-//'image_4',
-//'description',
-//'keywords',
-//'content:ntext',
+			'id',
+			//'category_id',
+[
+		'attribute'=>'category_id',
+		'value'=> function($data){
+                	return $data->category->title;
+		}
+],
+			'title',
+			//'article',
+			//'material',
+			//'production',
+			//'engine_type',
+			//'engine_size',
+			//'equipment:ntext',
+			//'applies:ntext',
+			'price',
+//			'availability',
+[
+		'attribute'=>'availability',
+		'value'=>function($data){
+            return $data->availability ? 'Есть в наличии': 'Нет в наличии';
+        }
+],
+//			'sale',
+[
+    'attribute'=>'sale',
+    'value'=>function($data){
+        return $data->sale ? 'Акция': '-';
+    }
+],
+			'discount',
+//			'hits',
+[
+    'attribute'=>'hits',
+    'value'=>function($data){
+        return $data->hits ? 'Хит продаж': '-';
+    }
+],
+			//'image_1',
+			//'image_2',
+			//'image_3',
+			//'image_4',
+			//'description',
+			//'keywords',
+			//'content:ntext',
 
-['class' => 'yii\grid\ActionColumn'],
-                    ],
+			['class' => 'yii\grid\ActionColumn'],
+								],
                 ]); ?>
 			</div>
 			<!--<div class="box-footer clearfix">

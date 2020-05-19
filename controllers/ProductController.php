@@ -12,6 +12,7 @@
         public function actionView($id)
         {
             $product = Product::findOne($id);
+
             $products = Product::find()->orderBy('RAND()')->limit(8)->all();
 
             if (empty ($product)) {

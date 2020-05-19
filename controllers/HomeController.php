@@ -6,7 +6,9 @@
 
     use app\models\Blog;
     use app\models\Category;
+    use app\models\Delivery;
     use app\models\Product;
+    use app\models\Shop;
     use yii\data\Pagination;
 
     class HomeController extends AppController
@@ -24,7 +26,7 @@
             $this->setMeta(\Yii::$app->name, $category->keywords, $category->description);
 
             $query = Product::find();
-            $pages = new Pagination(['totalCount'    => $query->count(), 'pageSize' => 8, 'forcePageParam' => false,
+            $pages = new Pagination(['totalCount'    => $query->count(), 'pageSize' => 12, 'forcePageParam' => false,
                                      'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
@@ -35,7 +37,10 @@
         public function actionDelivery()
         {
             $this->setMeta('Доставка и оплата');
-            return $this->render('delivery');
+
+            $text = Delivery::find()->where(['status'=>1])->all();
+
+            return $this->render('delivery',compact('text'));
         }
 
         public function actionContact()
@@ -48,7 +53,9 @@
         {
             $this->setMeta('О магазине');
 
-            return $this->render('shop');
+            $text = Shop::find()->where(['status'=>1])->all();
+
+            return $this->render('shop',compact('text'));
         }
 
         public function actionBlog()
