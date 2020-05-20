@@ -78,7 +78,11 @@
                             'image_4',
                             'description',
                             'keywords',
-                            'content:ntext',
+                            //'content:ntext',
+                            [
+                                'attribute'=>'content',
+                                'format'=>'raw',
+                            ],
                         ],
                     ]) ?>
 

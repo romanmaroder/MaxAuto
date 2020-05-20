@@ -1,11 +1,14 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+    use yii\helpers\Html;
+    use yii\widgets\ActiveForm;
+    use mihaildev\ckeditor\CKEditor;
+    use mihaildev\elfinder\ElFinder;
+    mihaildev\elfinder\Assets::noConflict($this);
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Product */
-/* @var $form yii\widgets\ActiveForm */
+    /* @var $this yii\web\View */
+    /* @var $model app\modules\admin\models\Product */
+    /* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="product-form">
@@ -14,13 +17,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'category_id')->dropDownList(['1'=>'Товар','2'=>'Хиты продаж','3'=>'Акции'])?>
+    <?= $form->field($model, 'category_id')->dropDownList(['1' => 'Товар', '2' => 'Хиты продаж', '3' => 'Акции']) ?>
 
-    <?= $form->field($model, 'availability')->dropDownList(['Есть в наличии','Нет в наличии']) ?>
+    <?= $form->field($model, 'availability')->dropDownList(['Есть в наличии', 'Нет в наличии']) ?>
 
-    <?= $form->field($model, 'hits')->dropDownList(['Нет','Да']) ?>
+    <?= $form->field($model, 'hits')->dropDownList(['Нет', 'Да']) ?>
 
-    <?= $form->field($model, 'sale')->dropDownList(['Нет','Да'])?>
+    <?= $form->field($model, 'sale')->dropDownList(['Нет', 'Да']) ?>
 
     <?= $form->field($model, 'discount')->textInput() ?>
 
@@ -36,11 +39,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'engine_size')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'equipment')->textarea(['rows' => 6]) ?>
+    <?/*= $form->field($model, 'equipment')->textarea(['rows' => 6]) */?>
+    <?= $form->field($model, 'equipment')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */]),
+    ]); ?>
 
-    <?= $form->field($model, 'applies')->textarea(['rows' => 6]) ?>
+    <?/*= $form->field($model, 'applies')->textarea(['rows' => 6]) */?>
 
-
+    <?= $form->field($model, 'applies')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */]),
+    ]); ?>
 
     <?= $form->field($model, 'image_1')->textInput(['maxlength' => true]) ?>
 
@@ -54,11 +62,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?/*= $form->field($model, 'content')->textarea(['rows' => 6]) */?>
 
-    <div class="form-group">
+    <?= $form->field($model, 'content')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */]),
+    ]); ?>
+
+	<div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
-    </div>
+	</div>
 
     <?php ActiveForm::end(); ?>
 

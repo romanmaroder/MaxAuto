@@ -38,15 +38,15 @@
 
     <div class="row">
 
-        <div class="article-image_container padded-inner-bottom">
+        <!--<div class="article-image_container padded-inner-bottom">
       <span class="article-image">
-		  <?php if (!empty($article->image)) :?>
-          <?= Html::img("@web/img/blog/{$article->image}",['title'=>$article->title ]) ?>
-		  <?php else: ?>
-              <?= Html::img("@web/img/blog/no-image.png",['title'=>$article->title ]) ?>
-		  <?php endif; ?>
+		  <?php /*if (!empty($article->image)) :*/?>
+          <?/*= Html::img("@web/img/blog/{$article->image}",['title'=>$article->title ]) */?>
+		  <?php /*else: */?>
+              <?/*= Html::img("@web/img/blog/no-image.png",['title'=>$article->title ]) */?>
+		  <?php /*endif; */?>
       </span>
-        </div>
+        </div>-->
 
 
         <div class="article-content editor">

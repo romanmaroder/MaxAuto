@@ -65,7 +65,7 @@ class Blog extends ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Заголовок',
-            'image' => 'Картинка',
+            'image' => 'Картинка заголовка',
             'content' => 'Контент',
             'created_at' => 'Создано',
             'updated_at' => 'Обновлено',

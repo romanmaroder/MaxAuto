@@ -4,6 +4,7 @@
 
 ?>
 <?= $this->render('//layouts/inc/sidebar') ?>
+<?php $info = $this->params['info'] ?>
 <div class="page row lg-grid-9 md-grid-9 sm-grid-12 xs-grid-12 padded-inner-sides">
 
     <div class="row">
@@ -41,13 +42,13 @@
 				<span>
 					<i class="fa fa-phone" aria-hidden="true"></i>
  				</span>
-                    <a href="tel:+38(066)1963651">+3 8(066)-196-36-51</a>
+                    <a href="tel:<?= $info->phone_1 ?>"><?= $info->phone_1 ?></a>
                 </p>
                 <p>
 					<span>
 						<i class="fa fa-phone" aria-hidden="true"></i>
 					</span>
-                    <a href="tel:+38(071)3632460">+38(071)-363-24-60</a>
+                    <a href="tel:<?= $info->phone_2 ?>"><?= $info->phone_2 ?></a>
                 </p>
             </div>
         </div>
