@@ -62,9 +62,10 @@
         {
             $this->setMeta('Блог');
 
-            $this->view->params['news'] = Blog::find()->all();
-            $this->view->params['lastNews'] = Blog::find()->orderBy('id desc')->limit(3)->all();
+            $this->view->params['news'] = Blog::find()->where(['status'=>1])->all();
             $news = $this->view->params['news'];
+
+            $this->view->params['lastNews'] = Blog::find()->orderBy('id desc')->where(['status'=>1])->limit(3)->all();
             $lastNews = $this->view->params['lastNews'];
 
             return $this->render('blog', compact('news','lastNews'));

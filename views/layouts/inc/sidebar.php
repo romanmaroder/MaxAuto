@@ -6,7 +6,7 @@
         <?php if (!empty($lastNews)): ?>
             <div class="sidebar_block">
                 <div class="sidebar_block-title">
-                    Новые статьи
+                    Последние вопросы
                 </div>
                 <div class="sidebar_block-content-news">
                     <?php foreach ( $lastNews as $post ): ?>
@@ -17,7 +17,6 @@
                             </a>
                         </div>
                     <?php endforeach; ?>
-
                 </div>
             </div>
 

@@ -20,7 +20,7 @@
                     <li class="menu-node menu-node--main_lvl_1">
 
                         <a href="<?= Url::to(["home/{$item->action}"]) ?>"
-                           class="menu-link <?php if ( $this->context->id == 'blog' ) echo "menu-link--current" ?>">
+                           class="menu-link <?php if ( $this->context->action->id == $item->action ) echo "menu-link--current" ?>">
                             <?= $item->title ?>
 
                         </a>

@@ -3,16 +3,16 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Product;
-use app\modules\admin\models\ProductSearch;
+use app\modules\admin\models\Blog;
+use yii\data\ActiveDataProvider;
 use app\modules\admin\controllers\AppAdminController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProductController implements the CRUD actions for Product model.
+ * BlogController implements the CRUD actions for Blog model.
  */
-class ProductController extends AppAdminController
+class BlogController extends AppAdminController
 {
     /**
      * {@inheritdoc}
@@ -30,22 +30,22 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Lists all Product models.
+     * Lists all Blog models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProductSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Blog::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Product model.
+     * Displays a single Blog model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,16 +58,16 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Creates a new Product model.
+     * Creates a new Blog model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Product();
+        $model = new Blog();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Товар добавлен');
+            Yii::$app->session->setFlash('success', 'Статья создана');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -77,7 +77,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Updates an existing Product model.
+     * Updates an existing Blog model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -88,7 +88,7 @@ class ProductController extends AppAdminController
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', 'Товар обновлен');
+            Yii::$app->session->setFlash('success', 'Пост обновлен');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -98,7 +98,7 @@ class ProductController extends AppAdminController
     }
 
     /**
-     * Deletes an existing Product model.
+     * Deletes an existing Blog model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,23 +107,23 @@ class ProductController extends AppAdminController
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        Yii::$app->session->setFlash('success', 'Товар удален');
+
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Product model based on its primary key value.
+     * Finds the Blog model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Product the loaded model
+     * @return Blog the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Product::findOne($id)) !== null) {
+        if (($model = Blog::findOne($id)) !== null) {
             return $model;
         }
 
-        throw new NotFoundHttpException('The requested page does not exist.');
+        throw new NotFoundHttpException('Такого поста не существует.');
     }
 }

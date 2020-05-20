@@ -32,15 +32,19 @@
     <h1 class="article-title content-title"><?= $article->title ?></h1>
 
     <div class="article-note">
-        Опубликовано: <?= $article->created_at ?>
+
+        Опубликовано: <?= \Yii::$app->formatter->asDate( $article->created_at);?>
     </div>
 
     <div class="row">
 
-        <div class="article-image_container
-                padded-inner-bottom">
+        <div class="article-image_container padded-inner-bottom">
       <span class="article-image">
+		  <?php if (!empty($article->image)) :?>
           <?= Html::img("@web/img/blog/{$article->image}",['title'=>$article->title ]) ?>
+		  <?php else: ?>
+              <?= Html::img("@web/img/blog/no-image.png",['title'=>$article->title ]) ?>
+		  <?php endif; ?>
       </span>
         </div>
 

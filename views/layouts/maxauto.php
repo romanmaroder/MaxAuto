@@ -93,11 +93,12 @@
 
 							<div class="lg-grid-6 mc-grid-12 left mc-center lg-padded-inner-left mc-padded-zero xs-hidden">
 
+
+								<?php $info = $this->params['info'] ?>
 								<div class="editor lg-left mc-center">
-									<p><a href="https://goo.gl/maps/7Yp6P1c5RL3jYM94A" target="_blank">
-									<p>Покровский р-к,магазин №96</p>
-									Донецк, Красногвардейский проспект</a>
-									</p>
+									<p>
+										<a href="https://goo.gl/maps/7Yp6P1c5RL3jYM94A" target="_blank">
+									<p><?= $info->address ?></p>
 								</div>
 							</div>
 						</div>
@@ -109,17 +110,17 @@
 									<span>
 										<i class="fa fa-phone" aria-hidden="true"></i>
  									</span>
-									<a href="tel:+38(066)1963651">+3 8(066)-196-36-51</a>
+									<a href="tel:<?= $info->phone_1 ?>"><?= $info->phone_1 ?></a>
 								</p>
 								<p>
 									<span>
 										<i class="fa fa-phone" aria-hidden="true"></i>
  									</span>
-									<a href="tel:+38(071)3632460">+38(071)-363-24-60</a>
+									<a href="tel:<?= $info->phone_2 ?>"><?= $info->phone_2 ?></a>
 								</p>
 								<p class="text">
 									<i class="fa fa-clock-o" aria-hidden="true"></i>
-									c 10:00 до 19:00
+                                    <?= $info->work_time ?>
 								</p>
 							</div>
 
@@ -207,18 +208,18 @@
 								<span><i class="fa fa-phone" aria-hidden="true"></i>
 
  </span>
-								<a href="tel:+38(066)1963651" class="footer_menu-link">+3 8(066)-196-36-51</a>
+								<a href="tel:<?php $info->phone_1 ?>" class="footer_menu-link"><?= $info->phone_1 ?></a>
 							</li>
 							<li class="menu-node menu-node--footer">
 								<span><i class="fa fa-phone" aria-hidden="true"></i>
 </span>
-								<a href="tel:+38(071)3632460" class="footer_menu-link">+38(071)-363-24-60</a>
+								<a href="tel:<?= $info->phone_2 ?>" class="footer_menu-link"><?= $info->phone_2 ?></a>
 							</li>
 
 							<li class="menu-node menu-node--footer">
 								<span><i class="fa fa-envelope-o" aria-hidden="true"></i>
  </span>
-								<a href="mailto:max_auto@bk.ru" class="footer_menu-link">max_auto@bk.ru</a>
+								<a href="mailto:<?= $info->email ?>" class="footer_menu-link"><?= $info->email ?></a>
 							</li>
 
 						</ul>

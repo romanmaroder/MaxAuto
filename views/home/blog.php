@@ -1,6 +1,7 @@
 <?php
 
     use yii\helpers\Url;
+    use yii\helpers\Html;
 
 ?>
 
@@ -37,9 +38,13 @@
 
 					<div class="article_preview-image_wrapper xs-hidden fl padded-right padded-bottom">
 						<a href="<?= Url::to(['blog/view','id'=>$post->id]) ?>" class="article_preview-image padded-right padded-bottom">
-							<?= \yii\helpers\Html::img("@web/img/blog/{$post->image}",['title'=>'Третья новость магазина']) ?>
-							<!--<img src="https://static-eu.insales.ru/images/articles/1/3136/76864/medium_dvigatel1.jpg"
-								 title="Третья новость магазина">-->
+
+                            <?php if (!empty($post->image)) :?>
+                                <?= Html::img("@web/img/blog/{$post->image}",['title'=>$post->title ]) ?>
+                            <?php else: ?>
+                                <?= Html::img("@web/img/blog/no-image.png",['title'=>$post->title ]) ?>
+                            <?php endif; ?>
+
 						</a>
 					</div>
 
@@ -50,7 +55,7 @@
 					</h2>
 
 					<div class="article_preview-note article-note">
-						Опубликовано: <?= $post->created_at ?>
+						Опубликовано: <?= \Yii::$app->formatter->asDate( $post->created_at);?>
 					</div>
 
 					<div class="article_preview-content article-content editor">
