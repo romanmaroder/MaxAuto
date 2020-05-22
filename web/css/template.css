@@ -895,6 +895,7 @@ p{
     .adaptive .grid-inline > .md-inline-bottom {
         vertical-align: bottom;
     }
+
 }
 @media (max-width: 800px) {
     .adaptive [class*="sm-grid-"] {
@@ -1095,6 +1096,7 @@ p{
     .adaptive .grid-inline > .sm-inline-bottom {
         vertical-align: bottom;
     }
+
 }
 @media (max-width: 640px) {
     .adaptive [class*="xs-grid-"] {
@@ -1514,6 +1516,7 @@ p{
     .adaptive .md-visible {
         display: block !important;
     }
+
 }
 @media (min-width: 641px) and (max-width: 800px) {
     .adaptive .sm-hidden {
@@ -4774,7 +4777,43 @@ html:not(.js) .menu--one_line {
 .slider--product .slider-right {
     padding: 0.5rem;
     width: 36px; }
-
+.slide-index {
+    display: block;
+    margin-bottom: 20px;
+}
+.slide-index.slide-title {
+    font-size: 26px;
+    font-weight: bold;
+}
+.slide-index.slide-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #56D91E;
+}
+.slide-index.slide-sale {
+    font-size: 56px;
+    font-weight: bold;
+    color: #f61717;
+}
+.slide-index.slide-price {
+    font-size: 42px;
+    font-weight: bold;
+    color: #56D91E;
+}
+@media screen and (min-width: 968px) {
+    .slide-index.slide-title {
+        font-size: 32px;
+    }
+    .slide-index.slide-subtitle{
+        font-size: 22px;
+    }
+    .slide-index.slide-sale {
+        font-size: 72px;
+    }
+    .slide-index.slide-price {
+        font-size: 52px;
+    }
+}
 /* tubs */
 /* line 6, _tabs.scss */
 .tabs-node {

@@ -40,9 +40,9 @@
 						<a href="<?= Url::to(['blog/view','id'=>$post->id]) ?>" class="article_preview-image padded-right padded-bottom">
 
                             <?php if (!empty($post->image)) :?>
-                                <?= Html::img("@web/img/blog/{$post->image}",['title'=>$post->title ]) ?>
+                                <?= Html::img("@web/{$post->image}",['title'=>$post->title ]) ?>
                             <?php else: ?>
-                                <?= Html::img("@web/img/blog/no-image.png",['title'=>$post->title ]) ?>
+                                <?= Html::img("@web/images/default/no-image.png",['title'=>$post->title ]) ?>
                             <?php endif; ?>
 
 						</a>

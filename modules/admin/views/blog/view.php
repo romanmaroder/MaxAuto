@@ -1,15 +1,15 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
+    use yii\helpers\Html;
+    use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\modules\admin\models\Blog */
+    /* @var $this yii\web\View */
+    /* @var $model app\modules\admin\models\Blog */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Пост', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+    $this->title = $model->title;
+    $this->params['breadcrumbs'][] = ['label' => 'Пост', 'url' => ['index']];
+    $this->params['breadcrumbs'][] = $this->title;
+    \yii\web\YiiAsset::register($this);
 ?>
 
 <div class="row">
@@ -21,9 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
                 <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
                     'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => 'Are you sure you want to delete this item?',
-                        'method' => 'post',
+                    'data'  => [
+                        'confirm' => 'Уверены, что хотите удалить этот пост?',
+                        'method'  => 'post',
                     ],
                 ]) ?>
 			</div>
@@ -31,17 +31,18 @@ $this->params['breadcrumbs'][] = $this->title;
 				<div class="blog-view">
 
                     <?= DetailView::widget([
-                        'model' => $model,
+                        'model'      => $model,
                         'attributes' => [
-                            //'id',
                             'title',
-                            'image',
-                            //'content:ntext',
                             [
-                                'attribute'=>'content',
-                                'format'=>'raw',
+                                'attribute' => 'image',
+                                'value'     => "/{$model->image}",
+                                'format'    => ['image', ['width' => '50']]
                             ],
-                            //'created_at',
+                            [
+                                'attribute' => 'content',
+                                'format'    => 'raw',
+                            ],
                             [
                                 'attribute' => 'created_at',
                                 'format'    => ['datetime', 'php:d M / Y / H:i '],
@@ -50,11 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
                                 'attribute' => 'updated_at',
                                 'format'    => ['datetime', 'php:d M / Y / H:i'],
                             ],
-							[
-									'attribute'=>'status',
-									'value'=> $model->status ? "<span class='text-green'>Опубликовано</span>" : "<span class='text-red'>Не опубликована</span>",
-									'format'=>'html',
-							]
+                            [
+                                'attribute' => 'status',
+                                'value'     => $model->status ? "<span class='text-green'>Опубликовано</span>" : "<span class='text-red'>Не опубликована</span>",
+                                'format'    => 'html',
+                            ]
                         ],
                     ]) ?>
 

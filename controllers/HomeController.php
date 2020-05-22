@@ -4,6 +4,7 @@
     namespace app\controllers;
 
 
+    use app\models\Banner;
     use app\models\Blog;
     use app\models\Category;
     use app\models\Delivery;
@@ -22,6 +23,9 @@
             $hits = Product::find()->where(['hits' => 1])->limit(4)->all();
             $offers = Product::find()->where(['sale' => 1])->limit(4)->all();
 
+            $slides = Product::find()->where(['banner'=>1])->all();
+            $slidesDefault = Banner::find()->all();
+
             $category = Category::findOne($id);
             $this->setMeta(\Yii::$app->name, $category->keywords, $category->description);
 
@@ -30,7 +34,7 @@
                                      'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
-            return $this->render('index', compact('categories', 'products', 'hits', 'offers', 'pages'));
+            return $this->render('index', compact('categories', 'products', 'hits', 'offers', 'pages','slides','slidesDefault'));
 
         }
 

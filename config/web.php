@@ -104,7 +104,7 @@
                 'class' => 'mihaildev\elfinder\PathController',
                 'access' => ['@'],
                 'root' => [
-                    'path' => 'uploads/files',
+                    'path' => 'images/uploads/files',
                     'name' => 'Files'
                 ],
             ]

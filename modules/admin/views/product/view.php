@@ -57,14 +57,19 @@
                                 'value'     => $model->hits ? 'Хит продаж' : '-',
 
                             ],
-
                             'article',
                             'material',
                             'production',
                             'engine_type',
                             'engine_size',
-                            'equipment:ntext',
-                            'applies:ntext',
+                            [
+                                'attribute' => 'equipment',
+                                'format'    => 'html',
+                            ],
+                            [
+                                'attribute' => 'applies',
+                                'format'    => 'html',
+                            ],
 
                             [
                                 'attribute' => 'availability',
@@ -72,16 +77,31 @@
 
                             ],
 
-                            'image_1',
-                            'image_2',
-                            'image_3',
-                            'image_4',
+                            [
+                                'attribute' => 'image_1',
+                                'value'     => "/{$model->image_1}",
+                                'format'    => ['image', ['width' => '100']]
+                            ],
+                            [
+                                'attribute' => 'image_2',
+                                'value'     => "/{$model->image_2}",
+                                'format'    => ['image', ['width' => '100']]
+                            ],
+                            [
+                                'attribute' => 'image_3',
+                                'value'     => "/{$model->image_3}",
+                                'format'    => ['image', ['width' => '100']]
+                            ],
+                            [
+                                'attribute' => 'image_4',
+                                'value'     => "/{$model->image_4}",
+                                'format'    => ['image', ['width' => '100']]
+                            ],
                             'description',
                             'keywords',
-                            //'content:ntext',
                             [
-                                'attribute'=>'content',
-                                'format'=>'raw',
+                                'attribute' => 'content',
+                                'format'    => 'raw',
                             ],
                         ],
                     ]) ?>

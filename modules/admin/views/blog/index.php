@@ -27,7 +27,10 @@
                             //['class' => 'yii\grid\SerialColumn'],
                             'title',
                             'image',
-                            'content:ntext',
+                            [
+                                'attribute' => 'content',
+                                'format'    => 'html',
+                            ],
                             ['attribute' => 'status',
                              'value'     => function ($data) {
                                  return $data->status ? "<span class='text-green'>Опубликовано</span>" : "<span class='text-red'>Неопубликовано</span>";
@@ -45,8 +48,6 @@
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
                     ]); ?>
-
-
 				</div>
 			</div>
 

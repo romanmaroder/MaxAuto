@@ -13,6 +13,7 @@
 	<html lang="<?= Yii::$app->language ?>">
 
 	<head>
+		<base href="/">
 		<meta charset="<?= Yii::$app->charset ?>">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,7 +88,7 @@
 							<div class="mc-grid-12 xs-padded-inner-bottom">
 								<a href="<?= \yii\helpers\Url::home() ?>" class="logo">
 
-                                    <?= Html::img('@web/img/logo.svg', ['class' => 'logo', 'alt' => 'MAX-Авто']) ?>
+                                    <?= Html::img('@web/images/default/logo.svg', ['class' => 'logo', 'alt' => 'MAX-Авто']) ?>
 								</a>
 							</div>
 

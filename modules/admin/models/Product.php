@@ -1,92 +1,137 @@
 <?php
 
-namespace app\modules\admin\models;
+    namespace app\modules\admin\models;
 
-use Yii;
-
-/**
- * This is the model class for table "product".
- *
- * @property int $id
- * @property int|null $category_id
- * @property string $title
- * @property int|null $article
- * @property string|null $material
- * @property string|null $production
- * @property string|null $engine_type
- * @property string|null $engine_size
- * @property string|null $equipment
- * @property string|null $applies
- * @property float $price
- * @property int|null $availability
- * @property int|null $sale
- * @property int $discount
- * @property int|null $hits
- * @property string|null $image_1
- * @property string|null $image_2
- * @property string|null $image_3
- * @property string|null $image_4
- * @property string|null $description
- * @property string|null $keywords
- * @property string|null $content
- */
-class Product extends \yii\db\ActiveRecord
-{
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return 'product';
-    }
-
-    public function getCategory()
-    {
-        return $this->hasOne(Category::class,['id'=>'category_id']);
-    }
+    use Yii;
+    use yii\web\UploadedFile;
 
     /**
-     * {@inheritdoc}
+     * This is the model class for table "product".
+     *
+     * @property int $id
+     * @property int|null $category_id
+     * @property string $title
+     * @property int|null $article
+     * @property string|null $material
+     * @property string|null $production
+     * @property string|null $engine_type
+     * @property string|null $engine_size
+     * @property string|null $equipment
+     * @property string|null $applies
+     * @property float $price
+     * @property int|null $availability
+     * @property int|null $sale
+     * @property int $discount
+     * @property int|null $hits
+     * @property string|null $image_1
+     * @property string|null $image_2
+     * @property string|null $image_3
+     * @property string|null $image_4
+     * @property string|null $description
+     * @property string|null $keywords
+     * @property string|null $content
      */
-    public function rules()
+    class Product extends \yii\db\ActiveRecord
     {
-        return [
-            [['category_id', 'article', 'availability', 'sale', 'discount', 'hits'], 'integer'],
-            [['title', 'price'], 'required'],
-            [['equipment', 'applies', 'content'], 'string'],
-            [['price'], 'number'],
-            [['title', 'material', 'production', 'engine_type', 'engine_size', 'image_1', 'image_2', 'image_3', 'image_4', 'description', 'keywords'], 'string', 'max' => 255],
-        ];
-    }
+        public $file_1;
+        public $file_2;
+        public $file_3;
+        public $file_4;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'category_id' => 'Категория',
-            'title' => 'Наименование',
-            'article' => 'Артикул',
-            'material' => 'Материал',
-            'production' => 'Производство',
-            'engine_type' => 'Тип двигателя',
-            'engine_size' => 'Объём двигателя',
-            'equipment' => 'Комплектация',
-            'applies' => 'Применяемость',
-            'price' => 'Цена',
-            'availability' => 'Доступность',
-            'sale' => 'Акция',
-            'discount' => 'Скидка',
-            'hits' => 'Хиты продажи',
-            'image_1' => 'Картинка 1',
-            'image_2' => 'Картинка 2',
-            'image_3' => 'Картинка 3',
-            'image_4' => 'Картинка 4',
-            'description' => 'Описание',
-            'keywords' => 'Ключевые слова',
-            'content' => 'Контент',
-        ];
+        /**
+         * {@inheritdoc}
+         */
+        public static function tableName()
+        {
+            return 'product';
+        }
+
+        public function getCategory()
+        {
+            return $this->hasOne(Category::class, ['id' => 'category_id']);
+        }
+
+        /**
+         * {@inheritdoc}
+         */
+        public function rules()
+        {
+            return [
+                [['category_id', 'article', 'availability', 'sale', 'discount', 'hits'], 'integer'],
+                [['title', 'price'], 'required'],
+                [['equipment', 'applies', 'content'], 'string'],
+                [['price'], 'number'],
+                [['title', 'material', 'production', 'engine_type', 'engine_size', 'image_1', 'image_2', 'image_3',
+                  'image_4', 'description', 'keywords'], 'string', 'max' => 255],
+                [['image_1', 'image_2', 'image_3',
+                  'image_4'], 'default', 'value' => 'images/default/no-image.png'],
+                [['file_1', 'file_2', 'file_3', 'file_4'], 'image'],
+                [['banner'], 'boolean'],
+
+            ];
+        }
+
+        /**
+         * {@inheritdoc}
+         */
+        public function attributeLabels()
+        {
+            return [
+                'id'           => 'ID',
+                'category_id'  => 'Категория',
+                'title'        => 'Наименование',
+                'article'      => 'Артикул',
+                'material'     => 'Материал',
+                'production'   => 'Производство',
+                'engine_type'  => 'Тип двигателя',
+                'engine_size'  => 'Объём двигателя',
+                'equipment'    => 'Комплектация',
+                'applies'      => 'Применяемость',
+                'price'        => 'Цена',
+                'availability' => 'Доступность',
+                'sale'         => 'Акция',
+                'discount'     => 'Скидка',
+                'hits'         => 'Хиты продажи',
+                'image_1'      => 'Основная картинка',
+                'image_2'      => 'Картинка превью',
+                'image_3'      => 'Картинка превью',
+                'image_4'      => 'Картинка превью',
+                'file_1'       => 'Основная картинка',
+                'file_2'       => 'Картинка превью',
+                'file_3'       => 'Картинка превью',
+                'file_4'       => 'Картинка превью',
+                'description'  => 'Описание',
+                'keywords'     => 'Ключевые слова',
+                'content'      => 'Контент',
+                'banner'      => 'Добавить в баннер',
+            ];
+        }
+
+        public function beforeSave($insert)
+        {
+            $arr = [
+                'image_1' => 'file_1',
+                'image_2' => 'file_2',
+                'image_3' => 'file_3',
+                'image_4' => 'file_4',
+            ];
+
+            foreach ( $arr as $item => $value ) {
+                if ( $file = UploadedFile::getInstance($this, $value) ) {
+
+                    $dir = 'images/products/' . date("Y-m-d") . '/';
+                    if ( !is_dir($dir) ) {
+                        mkdir($dir);
+                    }
+
+                    $file_name = uniqid() . '_' . $file->baseName . '.' . $file->extension;
+                    $this->$item = $dir . $file_name;
+                    $file->saveAs($this->$item);
+                }
+            }
+
+            return parent::beforeSave($insert); // TODO: Change the autogenerated stub
+        }
+
+
     }
-}

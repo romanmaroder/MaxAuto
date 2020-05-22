@@ -26,66 +26,58 @@
                     'columns'      => [
 //            ['class' => 'yii\grid\SerialColumn'],
 
-			'id',
-			//'category_id',
+'id',
 [
-		'attribute'=>'category_id',
-		'value'=> function($data){
-                	return $data->category->title;
-		}
+    'attribute' => 'category_id',
+    'value'     => function ($data) {
+        return $data->category->title;
+    }
 ],
-			'title',
-			//'article',
-			//'material',
-			//'production',
-			//'engine_type',
-			//'engine_size',
-			//'equipment:ntext',
-			//'applies:ntext',
-			'price',
+'title',
+[
+    'attribute' => 'hits',
+    'value'     => function ($data) {
+        return $data->hits ? 'Хит продаж' : '-';
+    }
+],
+[
+    'attribute' => 'sale',
+    'value'     => function ($data) {
+        return $data->sale ? 'Акция' : '-';
+    }
+],
+
+//'article',
+//'material',
+//'production',
+//'engine_type',
+//'engine_size',
+//'equipment:ntext',
+//'applies:ntext',
+'discount',
+'price',
+
 //			'availability',
 [
-		'attribute'=>'availability',
-		'value'=>function($data){
-            return $data->availability ? 'Есть в наличии': 'Нет в наличии';
-        }
-],
-//			'sale',
-[
-    'attribute'=>'sale',
-    'value'=>function($data){
-        return $data->sale ? 'Акция': '-';
+    'attribute' => 'availability',
+    'value'     => function ($data) {
+        return $data->availability ? 'Есть в наличии' : 'Нет в наличии';
     }
 ],
-			'discount',
-//			'hits',
-[
-    'attribute'=>'hits',
-    'value'=>function($data){
-        return $data->hits ? 'Хит продаж': '-';
-    }
-],
-			//'image_1',
-			//'image_2',
-			//'image_3',
-			//'image_4',
-			//'description',
-			//'keywords',
-			//'content:ntext',
 
-			['class' => 'yii\grid\ActionColumn'],
-								],
+
+//'image_1',
+//'image_2',
+//'image_3',
+//'image_4',
+//'description',
+//'keywords',
+//'content:ntext',
+
+['class' => 'yii\grid\ActionColumn'],
+                    ],
                 ]); ?>
 			</div>
-			<!--<div class="box-footer clearfix">
-				<ul class="pagination pagination-sm no-margin pull-right">
-					<li><a href="#">«</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">»</a></li>
-				</ul>
-			</div>-->
 		</div>
 	</div>
 

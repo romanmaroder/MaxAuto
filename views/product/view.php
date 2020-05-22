@@ -4,6 +4,7 @@
     use yii\helpers\Html;
 
 ?>
+<?php $info = $this->params['info'] ?>
 <div class="product row lg-grid-12 md-grid-12 sm-grid-12 xs-grid-12 padded-inner-sides">
 
 	<div class="row">
@@ -15,15 +16,11 @@
 			</a>
 
 			<span class="breadcrumbs-pipe">
-    					<i class="fa fa-angle-right"></i>
-  					</span>
-
+				<i class="fa fa-angle-right"></i>
+			</span>
 			<span class="breadcrumbs-page"><?= $product->title ?></span>
-
 		</div>
-
 	</div>
-
 
 	<h1 class="product-title content-title"><?= $product->title ?></h1>
 
@@ -32,19 +29,19 @@
 		<div class="product-gallery gallery">
 
 			<div class="gallery-large_image sm-hidden xs-hidden">
-				<a href="<?= Url::to(["@web/products/{$product->image_1}"]) ?>" alt="<?= $product->title ?>" id="MagicZoom"
+				<a href="<?= Url::to(["@web/{$product->image_1}"]) ?>" alt="<?= $product->title ?>" id="MagicZoom"
 				   class="MagicZoom"
 				   data-options="hint:always;
 				   textHoverZoomHint: Наведите для увеличения;
 				    textClickZoomHint: Нажмите для увеличения;
 				    textExpandHint: Полноэкранный просмотр;"
 					<figure class="mz-figure mz-hover-zoom mz-ready">
-                        <?= Html::img("@web/products/{$product->image_1}", ['style' => 'max-width: 480px; max-height: 480px;']) ?>
+                        <?= Html::img("@web/{$product->image_1}", ['style' => 'max-width: 480px; max-height: 480px;']) ?>
 
 						<div class="mz-lens"
 							 style="top: 0px; transform: translate(-10000px, -10000px); width: 384px; height: 384px;">
 
-                            <?= Html::img("@web/products/{$product->image_1}", ['style' => 'position: absolute; top: 0px; left: 0px; width: 480px; height: 480px; transform: translate(-97px, -1px);']) ?>
+                            <?= Html::img("@web/{$product->image_1}", ['style' => 'position: absolute; top: 0px; left: 0px; width: 480px; height: 480px; transform: translate(-97px, -1px);']) ?>
 
 						</div>
 						<div class="mz-hint mz-hint-hidden"></div>
@@ -54,57 +51,43 @@
 
 			<div class="slider slider--gallery">
 				<ul class="gallery-preview_list gallery-preview_list--horizontal slider-container owl-carousel js-slider--gallery owl-loaded owl-drag">
-
 					<li class="gallery-preview">
-
-						<a href="<?= Url::to(["@web/products/{$product->image_1}"]) ?>"
+						<a href="<?= Url::to(["@web/{$product->image_1}"]) ?>"
 						   class="gallery-image gallery-image--current image-square mz-thumb-selected mz-thumb"
 						   alt="" title="" data-zoom-id="MagicZoom"
-
-						   data-image="<?= Url::to(["@web/products/{$product->image_1}"]) ?>">
-
-                            <?= Html::img("@web/products/{$product->image_1}", ['class' => 'sm-hidden xs-hidden']) ?>
-							<?= Html::img("@web/products/{$product->image_1}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
-
+						   data-image="<?= Url::to(["@web/{$product->image_1}"]) ?>">
+                            <?= Html::img("@web/{$product->image_1}", ['class' => 'sm-hidden xs-hidden']) ?>
+							<?= Html::img("@web/{$product->image_1}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
 						</a>
 					</li>
 
 					<li class="gallery-preview">
-
-						<a href="<?= Url::to(["@web/products/{$product->image_2}"]) ?>"
+						<a href="<?= Url::to(["@web/{$product->image_2}"]) ?>"
 						   class="gallery-image gallery-image--current image-square mz-thumb-selected mz-thumb"
 						   alt="" title="" data-zoom-id="MagicZoom"
-						   data-image="<?= Url::to(["@web/products/{$product->image_2}"]) ?>">
-
-                            <?= Html::img("@web/products/{$product->image_2}", ['class' => 'sm-hidden xs-hidden']) ?>
-                            <?= Html::img("@web/products/{$product->image_2}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
-
+						   data-image="<?= Url::to(["@web/{$product->image_2}"]) ?>">
+                            <?= Html::img("@web/{$product->image_2}", ['class' => 'sm-hidden xs-hidden']) ?>
+                            <?= Html::img("@web/{$product->image_2}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
 						</a>
 					</li>
 
 					<li class="gallery-preview">
-
-						<a href="<?= Url::to(["@web/products/{$product->image_3}"]) ?>"
+						<a href="<?= Url::to(["@web/{$product->image_3}"]) ?>"
 						   class="gallery-image gallery-image--current image-square mz-thumb-selected mz-thumb"
 						   alt="" title="" data-zoom-id="MagicZoom"
-						   data-image="<?= Url::to(["@web/products/{$product->image_3}"]) ?>">
-
-                            <?= Html::img("@web/products/{$product->image_3}", ['class' => 'sm-hidden xs-hidden']) ?>
-                            <?= Html::img("@web/products/{$product->image_3}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
-
+						   data-image="<?= Url::to(["@web/{$product->image_3}"]) ?>">
+                            <?= Html::img("@web/{$product->image_3}", ['class' => 'sm-hidden xs-hidden']) ?>
+                            <?= Html::img("@web/{$product->image_3}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
 						</a>
 					</li>
 
 					<li class="gallery-preview">
-
-						<a href="<?= Url::to(["@web/products/{$product->image_4}"]) ?>"
+						<a href="<?= Url::to(["@web/{$product->image_4}"]) ?>"
 						   class="gallery-image gallery-image--current image-square mz-thumb-selected mz-thumb"
 						   alt="" title="" data-zoom-id="MagicZoom"
-						   data-image="<?= Url::to(["@web/products/{$product->image_4}"]) ?>">
-
-                            <?= Html::img("@web/products/{$product->image_4}", ['class' => 'sm-hidden xs-hidden']) ?>
-                            <?= Html::img("@web/products/{$product->image_4}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
-
+						   data-image="<?= Url::to(["@web/{$product->image_4}"]) ?>">
+                            <?= Html::img("@web/{$product->image_4}", ['class' => 'sm-hidden xs-hidden']) ?>
+                            <?= Html::img("@web/{$product->image_4}", ['class' => 'js-product_gallery-preview_image lg-hidden md-hidden']) ?>
 						</a>
 					</li>
 
@@ -300,22 +283,22 @@
 			<span>
 				<i class="fa fa-phone" aria-hidden="true"></i>
  			</span>
-				<a href="tel:+38(066)1963651">+3 8(066)-196-36-51</a>
+				<a href="tel:<?= $info->phone_1 ?>"><?= $info->phone_1 ?></a>
 			</p>
 			<br>
 			<p>
 				<span>
 					<i class="fa fa-phone" aria-hidden="true"></i>
  				</span>
-				<a href="tel:+38(071)3632460">+38(071)-363-24-60</a>
+				<a href="tel:<?= $info->phone_2 ?>"><?= $info->phone_2 ?></a>
 			</p>
 			<br>
 			<p>Или заполнив контактную форму</p>
 
 
-			<p class="product-quick_checkout product-buy button button--buy_invert button--large mc-grid-12 inline-middle" data-title="<?= $product->title ?>" data-article="<?= $product->article ?>" title="<?= $product->title ?>">
+			<button class="product-quick_checkout product-buy button button--buy_invert button--large mc-grid-12 inline-middle" data-title="<?= $product->title ?>" data-article="<?= $product->article ?>" >
 				Быстрый заказ
-			</p>
+			</button>
 
 
 		</div>
@@ -343,7 +326,7 @@
 								<a href="<?= Url::to(['product/view','id'=>$product->id]) ?>"
 								   class="product_preview-image image-square"
 								title="<?= $product->title ?>">
-									<?= Html::img("@web/products/{$product->image_1}",['title'=>$product->title,'alt'=>$product->title]) ?>
+									<?= Html::img("@web/{$product->image_1}",['title'=>$product->title,'alt'=>$product->title]) ?>
 
 								</a>
 							</div>

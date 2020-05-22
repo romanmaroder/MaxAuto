@@ -17,10 +17,16 @@
         public function rules()
         {
             return [
-                [['id', 'category_id', 'article', 'availability', 'sale', 'discount', 'hits'], 'integer'],
+                [['article','discount'], 'integer'],
                 [['title', 'material', 'production', 'engine_type', 'engine_size', 'equipment', 'applies', 'image_1',
                   'image_2', 'image_3', 'image_4', 'description', 'keywords', 'content'], 'safe'],
                 [['price'], 'number'],
+
+                //                default
+                /* [['id', 'category_id', 'article', 'availability', 'sale', 'discount', 'hits'], 'integer'],
+                 [['title', 'material', 'production', 'engine_type', 'engine_size', 'equipment', 'applies', 'image_1',
+                   'image_2', 'image_3', 'image_4', 'description', 'keywords', 'content'], 'safe'],
+                 [['price'], 'number'],*/
             ];
         }
 
@@ -49,7 +55,7 @@
             $dataProvider = new ActiveDataProvider([
                 'query'      => $query,
                 'pagination' => [
-                    'pageSize' => 5,
+                    'pageSize' => 10,
                 ]
             ]);
 

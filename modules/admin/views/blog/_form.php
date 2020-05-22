@@ -4,6 +4,7 @@
     use yii\widgets\ActiveForm;
     use mihaildev\ckeditor\CKEditor;
     use mihaildev\elfinder\ElFinder;
+    use kartik\file\FileInput;
 
     mihaildev\elfinder\Assets::noConflict($this);
 
@@ -18,16 +19,18 @@
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'file')->widget(FileInput::class, [
+        'options' => ['accept' => 'image/*'],
+        'pluginOptions' => [
+            'showCaption' => false,
+            'showUpload' => false,
+        ]
 
-    <? /*= $form->field($model, 'content')->textarea(['rows' => 10, 'style' => 'resize:vertical;']) */ ?>
+    ]); ?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::class, [
         'editorOptions' => ElFinder::ckeditorOptions('elfinder', ['preset' => 'standart','inline' => false])
         ]); ?>
-
-    <? /*= $form->field($model, 'created_at')->textInput() */ ?>
-    <? /*= $form->field($model, 'updated_at')->textInput() */ ?>
 
     <?= $form->field($model, 'status')->dropDownList(['Неопубликовано', 'Опубликовать']) ?>
 

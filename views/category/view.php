@@ -33,6 +33,7 @@
 
 	<div class="collection-products_list grid-inline grid-row-inner">
 
+		<?php if (!empty($products)) :?>
         <?php foreach ( $products as $product ): ?>
 
 			<div class="lg-grid-3 md-grid-4 xs-grid-6 mc-grid-12
@@ -78,7 +79,11 @@
 
 			</div>
         <?php endforeach; ?>
-
+		<?php else: ?>
+		<div class="lg-grid-12 md-grid-12 xs-grid-12 mc-grid-12 padded-inner">
+			<h2>В этой категории нет товаров</h2>
+		</div>
+		<?php endif; ?>
 	</div>
 
 <!--	Pagination-->

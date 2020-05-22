@@ -98,11 +98,21 @@ $this->params['breadcrumbs'][]= $this->title;
 				</li>
 				<!-- /.item -->
 				<li class="item">
+				<div class="product-info" style="margin-left: 0">
+					<a href="<?= Url::to(['shop/index']) ?>" class="product-title">О магазине
+					</a>
+					<span class="product-description">
+                          Раздел "О магазине"
+                        </span>
+				</div>
+				</li>
+				<!-- /.item -->
+				<li class="item">
 					<div class="product-info" style="margin-left: 0">
-						<a href="<?= Url::to(['shop/index']) ?>" class="product-title">О магазине
+						<a href="<?= Url::to(['banner/index']) ?>" class="product-title">Баннер
 						</a>
 						<span class="product-description">
-                          Раздел "О магазине"
+                          Раздел "Баннер"
                         </span>
 					</div>
 				</li>

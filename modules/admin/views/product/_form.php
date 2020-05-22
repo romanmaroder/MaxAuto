@@ -4,6 +4,8 @@
     use yii\widgets\ActiveForm;
     use mihaildev\ckeditor\CKEditor;
     use mihaildev\elfinder\ElFinder;
+    use kartik\file\FileInput;
+
     mihaildev\elfinder\Assets::noConflict($this);
 
     /* @var $this yii\web\View */
@@ -13,7 +15,7 @@
 
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
@@ -39,33 +41,56 @@
 
     <?= $form->field($model, 'engine_size')->textInput(['maxlength' => true]) ?>
 
-    <?/*= $form->field($model, 'equipment')->textarea(['rows' => 6]) */?>
     <?= $form->field($model, 'equipment')->widget(CKEditor::class, [
-        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */]),
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',['preset' => 'basic','height'=>'auto']),
     ]); ?>
-
-    <?/*= $form->field($model, 'applies')->textarea(['rows' => 6]) */?>
 
     <?= $form->field($model, 'applies')->widget(CKEditor::class, [
-        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */]),
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',['preset' => 'basic','height'=>'auto']),
     ]); ?>
 
-    <?= $form->field($model, 'image_1')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'file_1')->widget(FileInput::class, [
+        'options' => ['accept' => 'image/*'],
+        'pluginOptions' => [
+            'showCaption' => false,
+            'showUpload' => false,
+        ]
 
-    <?= $form->field($model, 'image_2')->textInput(['maxlength' => true]) ?>
+    ]); ?>
 
-    <?= $form->field($model, 'image_3')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'file_2')->widget(FileInput::class, [
+        'options' => ['accept' => 'image/*'],
+		'pluginOptions' => [
+            'showCaption' => false,
+            'showUpload' => false,
+        ]
 
-    <?= $form->field($model, 'image_4')->textInput(['maxlength' => true]) ?>
+    ]); ?>
+
+    <?= $form->field($model, 'file_3')->widget(FileInput::class, [
+        'options' => ['accept' => 'image/*'],
+		'pluginOptions' => [
+            'showCaption' => false,
+            'showUpload' => false,
+        ]
+
+    ]); ?>
+    <?= $form->field($model, 'file_4')->widget(FileInput::class, [
+        'options' => ['accept' => 'image/*'],
+		'pluginOptions' => [
+            'showCaption' => false,
+            'showUpload' => false,
+        ]
+
+    ]); ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
-    <?/*= $form->field($model, 'content')->textarea(['rows' => 6]) */?>
 
     <?= $form->field($model, 'content')->widget(CKEditor::class, [
-        'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */]),
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder',['preset' => 'basic','height'=>'auto']),
     ]); ?>
 
 	<div class="form-group">

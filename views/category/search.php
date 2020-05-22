@@ -49,7 +49,7 @@
                         <a href="<?= Url::to(['product/view', 'id' => $product->id]) ?>"
                            class="product_preview-image image-square"
                            title="<?= $product->title ?>">
-                            <?= Html::img("@web/products/{$product->image_1}", ['title' => $product->title]) ?>
+                            <?= Html::img("@web/{$product->image_1}", ['title' => $product->title]) ?>
                         </a>
                     </div>
 
