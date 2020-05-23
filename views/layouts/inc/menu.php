@@ -38,8 +38,7 @@
 
             <form action="/search" method="get" class="search_widget search_widget--header ">
 
-                <input type="text" name="q" class="search_widget-field js-ajax_search-input" value=""
-                       placeholder="Поиск"/>
+				<input type="text" name="q" class="search_widget-field" placeholder="Поиск " onfocus="this.value = '';"  onblur="if (this.value == '') {this.value = 'введите данные для поиска...';}" required=""/>
 
                 <button type="submit" class="search_widget-submit button--invert">
                     <i class="fa fa-search"></i>
