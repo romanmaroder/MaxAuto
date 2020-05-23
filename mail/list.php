@@ -11,8 +11,22 @@
         <tbody>
 
             <tr>
-                <td style="padding: 8px; border: 1px solid #ddd;"><?= $model->name?></td>
-                <td style="padding: 8px; border: 1px solid #ddd;"><a href="tel:<?=$model->phone?>"><?= $model->phone?></a></td>
+
+                <td style="padding: 8px; border: 1px solid #ddd;">
+                    <?php if (!empty($model->name)): ?>
+					<?= $model->name?>
+						<?php else: ?>
+                        -
+                    <?php endif; ?>
+                </td>
+                <td style="padding: 8px; border: 1px solid #ddd;">
+                    <?php if (!empty($model->phone)): ?>
+                    <a href="tel:<?=$model->phone?>"><?= $model->phone?></a>
+                    <?php else: ?>
+                        -
+                    <?php endif; ?>
+                </td>
+
                 <td style="padding: 8px; border: 1px solid #ddd; text-align:center"><a href="mailto:<?= $model->email?>"><?= $model->email?> </a></td>
                 <td style="padding: 8px; border: 1px solid #ddd; text-align:center"><?= $model->message?></td>
             </tr>

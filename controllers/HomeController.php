@@ -20,10 +20,10 @@
         {
             $categories = Category::find()->all();
 
-            $hits = Product::find()->where(['hits' => 1])->limit(4)->all();
-            $offers = Product::find()->where(['sale' => 1])->limit(4)->all();
+            $hits = Product::find()->where(['or', 'category_id = 2', 'hits=1'])->limit(4)->all();
+            $offers = Product::find()->where(['category_id' => 3])->limit(4)->all();
 
-            $slides = Product::find()->where(['banner'=>1])->all();
+            $slides = Product::find()->where(['banner' => 1])->all();
             $slidesDefault = Banner::find()->all();
 
             $category = Category::findOne($id);
@@ -34,7 +34,7 @@
                                      'pageSizeParam' => false]);
             $products = $query->offset($pages->offset)->limit($pages->limit)->all();
 
-            return $this->render('index', compact('categories', 'products', 'hits', 'offers', 'pages','slides','slidesDefault'));
+            return $this->render('index', compact('categories', 'products', 'hits', 'offers', 'pages', 'slides', 'slidesDefault'));
 
         }
 
@@ -42,9 +42,9 @@
         {
             $this->setMeta('Доставка и оплата');
 
-            $text = Delivery::find()->where(['status'=>1])->all();
+            $text = Delivery::find()->where(['status' => 1])->all();
 
-            return $this->render('delivery',compact('text'));
+            return $this->render('delivery', compact('text'));
         }
 
         public function actionContact()
@@ -57,22 +57,22 @@
         {
             $this->setMeta('О магазине');
 
-            $text = Shop::find()->where(['status'=>1])->all();
+            $text = Shop::find()->where(['status' => 1])->all();
 
-            return $this->render('shop',compact('text'));
+            return $this->render('shop', compact('text'));
         }
 
         public function actionBlog()
         {
             $this->setMeta('Блог');
 
-            $this->view->params['news'] = Blog::find()->where(['status'=>1])->all();
+            $this->view->params['news'] = Blog::find()->where(['status' => 1])->all();
             $news = $this->view->params['news'];
 
-            $this->view->params['lastNews'] = Blog::find()->orderBy('id desc')->where(['status'=>1])->limit(3)->all();
+            $this->view->params['lastNews'] = Blog::find()->orderBy('id desc')->where(['status' => 1])->limit(3)->all();
             $lastNews = $this->view->params['lastNews'];
 
-            return $this->render('blog', compact('news','lastNews'));
+            return $this->render('blog', compact('news', 'lastNews'));
         }
 
     }

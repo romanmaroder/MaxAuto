@@ -29,8 +29,8 @@
 		<script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 		<![endif]-->
 
-		<meta property="og:title" content="MAX-Авто"/>
-		<meta property="og:image" content=""/>
+		<meta property="og:title" content="Запчасти для Daewoo Chevrolet"/>
+		<meta property="og:image" content="/images/default/5.jpg"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:url" content=""/>
 
@@ -63,7 +63,7 @@
 					<div class="sm-grid-4 xs-grid-10 lg-hidden md-hidden right">
 
 						<form action="<?= Url::to(['category/search']) ?>" method="GET" class="search_widget search_widget--top_line ">
-							<input type="text" name="q" class="search_widget-field" value="" placeholder="Поиск"/>
+							<input type="text" name="q" class="search_widget-field" placeholder="Поиск " onfocus="this.value = '';"  onblur="if (this.value == '') {this.value = 'введите данные для поиска...';}" required=""/>
 
 							<button class="search_widget-submit button--invert" type="submit">
 								<i class="fa fa-search"></i>
@@ -151,21 +151,14 @@
 					<ul class="footer_block-content menu menu--footer menu--vertical">
 
 						<li class="menu-node menu-node--footer">
-							<a href="/page/blog.html" class="menu-link">
-								F.A.Q.
-							</a>
+							<?= Html::a('F.A.Q.',['home/blog'],['class'=>'menu-link']) ?>
 						</li>
 						<li class="menu-node menu-node--footer">
-							<a href="/page/dostavka-i-oplata.html"
-							   class="menu-link">
-								Доставка и оплата
-							</a>
+                            <?= Html::a('Доставка и оплата',['home/delivery'],['class'=>'menu-link']) ?>
 						</li>
 
 						<li class="menu-node menu-node--footer">
-							<a href="/page/feedback.html" class="menu-link">
-								Обратная связь
-							</a>
+                            <?= Html::a('Обратная связь',['feedback/index'],['class'=>'menu-link']) ?>
 						</li>
 
 					</ul>
@@ -178,16 +171,16 @@
 						<div class="footer_sidebar_block-title">Мы в соцсетях</div>
 						<div class="footer_sidebar_block--link">
 
-							<a href="https://t.me/" class="footer_menu-link ">
+							<a href="https://t.me/" class="footer_menu-link " target="_blank">
 								<i class="fa fa-telegram fa-2x" aria-hidden="true"></i>
 							</a>
-							<a href="https://viber.click/79380661963651" class="footer_menu-link">
+							<a href="https://viber.click/79380661963651" class="footer_menu-link" target="_blank">
 								<i class="fa fa-viber fa-2x" aria-hidden="true"></i>
 							</a>
-							<a href="https://wapp.click/79+380661963651" class="footer_menu-link">
+							<a href="https://wapp.click/79+380661963651" class="footer_menu-link" target="_blank">
 								<i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>
 							</a>
-							<a href="#" class="footer_menu-link">
+							<a href="https://vk.com/zapchastilanosdn" class="footer_menu-link" target="_blank">
 								<svg enable-background="new 0 0 50 50" id="vk" version="1.1" viewBox="0 0 50 50" xml:space="preserve" width="32px" height="32px" fill="#fff"
 									 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <path d="M26,34c1,0,1-1.4,1-2c0-1,1-2,2-2s2.7,1.7,4,3c1,1,1,1,2,1s3,0,3,0s2-0.1,2-2c0-0.6-0.7-1.7-3-4  c-2-2-3-1,0-5c1.8-2.5,3.2-4.7,3-5.3c-0.2-0.6-5.3-1.6-6-0.7c-2,3-2.4,3.7-3,5c-1,2-1.1,3-2,3c-0.9,0-1-1.9-1-3c0-3.3,0.5-5.6-1-6  c0,0-2,0-3,0c-1.6,0-3,1-3,1s-1.2,1-1,1c0.3,0,2-0.4,2,1c0,1,0,2,0,2s0,4-1,4c-1,0-3-4-5-7c-0.8-1.2-1-1-2-1c-1.1,0-2,0-3,0  c-1,0-1.1,0.6-1,1c2,5,3.4,8.1,7.2,12.1c3.5,3.6,5.8,3.8,7.8,3.9C25.5,34,25,34,26,34z"

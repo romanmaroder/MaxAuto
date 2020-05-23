@@ -4,7 +4,7 @@ $(function () {
         loop: true,
         dots: false,
         lazyLoad: true,
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 4000,
         autoplayHoverPause:true,
         navText: ['<i class="fa fa-angle-left" />', '<i class="fa fa-angle-right" />'],
@@ -194,6 +194,7 @@ $(function () {
             }, 1000);
         });
 
+
 });
 
 
@@ -204,3 +205,6 @@ $(document).on('click', '.js-scrollTop', function (event) {
         scrollTop: 0
     }, 400);
 });
+
+
+

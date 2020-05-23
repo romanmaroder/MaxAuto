@@ -24,18 +24,19 @@
                     <?= GridView::widget([
                         'dataProvider' => $dataProvider,
                         'columns'      => [
-                            //['class' => 'yii\grid\SerialColumn'],
                             'title',
-                            'image',
-                            [
-                                'attribute' => 'content',
-                                'format'    => 'html',
+                            ['attribute' => 'image',
+                             'value'     => function ($data) {
+                                 return "/{$data->image}";
+                             },
+                             'format'    =>  ['image', ['width' => '100']],
                             ],
                             ['attribute' => 'status',
                              'value'     => function ($data) {
                                  return $data->status ? "<span class='text-green'>Опубликовано</span>" : "<span class='text-red'>Неопубликовано</span>";
                              },
-                             'format'    => 'html'],
+                             'format'    => 'html'
+							],
                             [
                                 'attribute' => 'created_at',
                                 'format'    => ['datetime', 'php:d M / Y / H:i'],

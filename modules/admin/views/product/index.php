@@ -24,57 +24,42 @@
                     'dataProvider' => $dataProvider,
                     'filterModel'  => $searchModel,
                     'columns'      => [
-//            ['class' => 'yii\grid\SerialColumn'],
 
-'id',
-[
-    'attribute' => 'category_id',
-    'value'     => function ($data) {
-        return $data->category->title;
-    }
-],
-'title',
-[
-    'attribute' => 'hits',
-    'value'     => function ($data) {
-        return $data->hits ? 'Хит продаж' : '-';
-    }
-],
-[
-    'attribute' => 'sale',
-    'value'     => function ($data) {
-        return $data->sale ? 'Акция' : '-';
-    }
-],
+                        [
+                            'attribute' => 'category_id',
+                            'value'     => function ($data) {
+                                return $data->category->title;
+                            }
+                        ],
+                        'title',
+                        [
+                            'attribute' => 'hits',
+                            'value'     => function ($data) {
+                                return $data->hits ? 'Хит продаж' : '-';
+                            }
+                        ],
+                        [
+                            'attribute' => 'sale',
+                            'value'     => function ($data) {
+                                return $data->sale ? 'Акция' : '-';
+                            }
+                        ],
+                        'discount',
+                        'price',
+                        [
+                            'attribute' => 'availability',
+                            'value'     => function ($data) {
+                                return $data->availability ? 'Есть в наличии' : 'Нет в наличии';
+                            }
+                        ],
+                        [
+                            'attribute' => 'banner',
+                            'value'     => function ($data) {
+                                return $data->banner ? 'Добавлено' : 'Нет';
+                            }
+                        ],
 
-//'article',
-//'material',
-//'production',
-//'engine_type',
-//'engine_size',
-//'equipment:ntext',
-//'applies:ntext',
-'discount',
-'price',
-
-//			'availability',
-[
-    'attribute' => 'availability',
-    'value'     => function ($data) {
-        return $data->availability ? 'Есть в наличии' : 'Нет в наличии';
-    }
-],
-
-
-//'image_1',
-//'image_2',
-//'image_3',
-//'image_4',
-//'description',
-//'keywords',
-//'content:ntext',
-
-['class' => 'yii\grid\ActionColumn'],
+                        ['class' => 'yii\grid\ActionColumn'],
                     ],
                 ]); ?>
 			</div>

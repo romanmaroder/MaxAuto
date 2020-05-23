@@ -40,7 +40,7 @@
 						<a href="<?= Url::to(['blog/view','id'=>$post->id]) ?>" class="article_preview-image padded-right padded-bottom">
 
                             <?php if (!empty($post->image)) :?>
-                                <?= Html::img("@web/{$post->image}",['title'=>$post->title ]) ?>
+                                <?= Html::img("@web/{$post->image}",['title'=>$post->title,'style'=>'max-width:250px;' ]) ?>
                             <?php else: ?>
                                 <?= Html::img("@web/images/default/no-image.png",['title'=>$post->title ]) ?>
                             <?php endif; ?>

@@ -30,7 +30,7 @@
         ];
         public $js = [
 //            '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js',
-            '//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js',
+            //'//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js',
             'js/modernizr.js',
             'libs/owlcarousel/owl.carousel.min.js',
             'js/template.js',

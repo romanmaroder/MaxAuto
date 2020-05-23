@@ -57,9 +57,9 @@
         public function rules()
         {
             return [
-                [['category_id', 'article', 'availability', 'sale', 'discount', 'hits'], 'integer'],
+                [['category_id', 'availability', 'sale', 'discount', 'hits'], 'integer'],
                 [['title', 'price'], 'required'],
-                [['equipment', 'applies', 'content'], 'string'],
+                [['equipment', 'applies', 'content','article'], 'string'],
                 [['price'], 'number'],
                 [['title', 'material', 'production', 'engine_type', 'engine_size', 'image_1', 'image_2', 'image_3',
                   'image_4', 'description', 'keywords'], 'string', 'max' => 255],

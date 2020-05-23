@@ -21,7 +21,7 @@
 
     <?= $form->field($model, 'category_id')->dropDownList(['1' => 'Товар', '2' => 'Хиты продаж', '3' => 'Акции']) ?>
 
-    <?= $form->field($model, 'availability')->dropDownList(['Есть в наличии', 'Нет в наличии']) ?>
+    <?= $form->field($model, 'availability')->dropDownList(['Нет в наличии','Есть в наличии' ]) ?>
 
     <?= $form->field($model, 'hits')->dropDownList(['Нет', 'Да']) ?>
 
@@ -83,6 +83,8 @@
         ]
 
     ]); ?>
+
+    <?= $form->field($model, 'banner')->dropDownList(['Нет', 'Да']) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 

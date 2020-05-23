@@ -48,7 +48,7 @@
 						<a href="<?= Url::to(['product/view', 'id' => $product->id]) ?>"
 						   class="product_preview-image image-square"
 						   title="<?= $product->title ?>">
-                            <?= Html::img("@web/products/{$product->image_1}", ['title' => $product->title]) ?>
+                            <?= Html::img("@web/{$product->image_1}", ['title' => $product->title]) ?>
 						</a>
 					</div>
 
@@ -59,8 +59,6 @@
                                 <?= $product->price ?> руб
 							</div>
 						</div>
-
-						<input type="hidden" name="variant_id" value="85226247">
 
 						<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy" data-title="<?= $product->title ?>" data-article="<?= $product->article ?>" title="<?= $product->title ?>">
 							Быстрый заказ

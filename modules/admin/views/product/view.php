@@ -97,6 +97,11 @@
                                 'value'     => "/{$model->image_4}",
                                 'format'    => ['image', ['width' => '100']]
                             ],
+                            [
+                                'attribute' => 'banner',
+                                'value'     => $model->banner ? "<span class='text-green'>Добавлено</span>" : "<span class='text-yellow'>Нет</span>",
+                                'format'    => 'html'
+                            ],
                             'description',
                             'keywords',
                             [

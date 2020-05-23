@@ -14,7 +14,8 @@
 
 	<div class="m-modal m-modal--checkout" id="quick-checkout-dialog" style="display: block; top:50%;left:50%;transform: translate(-50%,-50%)">
 		<div class="m-modal-wrapper" style="text-align: center">
-			<p>Спасибо, за заказ.</p><p> Менеджер свяжется с Вами в течение часа</p>
+			<p>Спасибо, за заказ.</p>
+			<p> Менеджер свяжется с Вами в течение часа</p>
 			<button id="answer" class="m-modal-close"></button>
 		</div>
 	</div>
@@ -34,7 +35,8 @@
                 'fieldConfig' => [
                     'template'     => " <div class='m-input \'>{label}\n\n{input}\n{hint}\n{error}\n</div>",
                     'labelOptions' => ['class' => 'm-input-label'],
-                    'inputOptions' => ['class' => 'm-input-field']
+                    'inputOptions' => ['class' => 'm-input-field'],
+                    'errorOptions'=>['class'=>'help-block','style'=>'color:red;']
                 ],
             ]) ?>
 
@@ -42,9 +44,9 @@
 			<div class="m-modal-heading">Заказ в один клик</div>
 			<div class="m-input m-input--required ">
                 <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-                <?= $form->field($model, 'phone')->input('phone') ?>
+                <?= $form->field($model, 'phone')->input('phone',['placeholder'=>'+38 099 999-99-99']) ?>
                 <?= $form->field($model, 'email')->input('email') ?>
-                <?= $form->field($model, 'message')->textarea(['row' => 5]) ?>
+                <?= $form->field($model, 'message')->textarea(['row' => 5,'placeholder'=>'Напишите артикул или название товара']) ?>
 				<div class="m-modal-footer">
                     <?= Html::submitButton('Заказать', ['class' => 'm-modal-button m-modal-button--checkout button--checkout', 'name'  => 'contact-button']) ?>
 				</div>

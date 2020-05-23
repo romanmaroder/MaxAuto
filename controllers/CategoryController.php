@@ -21,8 +21,13 @@
 
             $this->setMeta("{$category->title} ::" . \Yii::$app->name, $category->keywords, $category->description);
 
+            if ($id == 3){
+                $query = Product::find()->where(['category_id'=>$id]);
+            }else {
+                $query = Product::find()->where(['or',['category_id'=>$id],['hits'=>1]]);
+            }
 
-            $query = Product::find()->where(['category_id' => $id]);
+
 
             $pages = new Pagination(['totalCount'    => $query->count(), 'pageSize' => 8, 'forcePageParam' => false,
                                      'pageSizeParam' => false]);
@@ -46,6 +51,7 @@
                                              ['like', 'title', $q],
                                              ['like', 'article', $q],
                                              ['like', 'price', $q]]);
+
             $pages = new Pagination(['totalCount'    => $query->count(),
                                      'forcePageParam' => false,
                                      'pageSize' => 12,

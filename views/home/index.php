@@ -4,6 +4,7 @@
     use yii\helpers\Html;
 
 ?>
+<?php $info = $this->params['info'] ;?>
 <div class="index row lg-grid-12 md-grid-12 sm-grid-12 xs-grid-12 padded-inner-sides">
 
 	<div class="slider slider--index sm-hidden xs-hidden">
@@ -19,7 +20,7 @@
 						<p class='lg-grid-6 md-grid-6 sm-grid-6 xs-grid-6 padded-inner-sides'>
 							<span class='slide-index slide-title'>$slide->title</span>
 							<span class='slide-index slide-subtitle'>Артикул: $slide->article</span>
-							<span class='slide-index slide-sale'>Акция! -$slide->sale%</span>
+							<span class='slide-index slide-sale'>Акция! -$slide->discount%</span>
 							<span class='slide-index slide-price'>$slide->price руб.</span>
 							</p>"; ?>
 
@@ -98,10 +99,6 @@
 										</div>
 									</div>
 
-									<input type="hidden" name="product_title" value="<?= $product->title ?>">
-									<input type="hidden" name="product_article" value="<?= $product->article ?>">
-
-
 									<button class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy"
 											title="<?= $product->title ?>">
 										Быстрый заказ
@@ -171,7 +168,7 @@
 									<a href="<?= Url::to(['product/view', 'id' => $hit->id]) ?>"
 									   class="product_preview-image image-square"
 									   title="<?= $hit->title ?>">
-                                        <?= Html::img("@web/products/{$hit->image_1}", ['title' => $hit->title]) ?>
+                                        <?= Html::img("@web/{$hit->image_1}", ['title' => $hit->title]) ?>
 									</a>
 								</div>
 
@@ -182,9 +179,6 @@
                                             <?= $hit->price ?> руб
 										</div>
 									</div>
-
-									<input type="hidden" name="variant_id" value="85226247">
-
 
 									<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy"
 									   data-quick-checkout="" title="<?= $hit->title ?>">
@@ -237,7 +231,7 @@
 									<a href="<?= Url::to(['product/view', 'id' => $offer->id]) ?>"
 									   class="product_preview-image image-square"
 									   title="<?= $offer->title ?>">
-                                        <?= Html::img("@web/products/{$offer->image_1}", ['title' => $offer->title]) ?>
+                                        <?= Html::img("@web/{$offer->image_1}", ['title' => $offer->title]) ?>
 									</a>
 								</div>
 
@@ -286,25 +280,15 @@
 
 		<div class="index-content">
 
-			<h1 class="index-title content-title">Главная страница</h1>
-
 			<div class="page-content editor">
-				<p>Добро пожаловать в интернет-магазин замечательных товаров!</p>
-				<p>Мы с радостью принимаем и обслуживаем заказы 7 дней в неделю с 10 до 18 по московскому
-					времени.
-					Доставка возможна как по Москве, так и в регионы.</p>
-				<p>Сделайте заказ через сайт и мы Вам перезвоним для согласования времени доставки заказа.</p>
-				<p><em><br/></em></p>
-				<p><em>Каталог наполнен несколькими товарами для демонстрации возможностей платформы <a
-								href="http://www.insales.ru">InSales</a>. Изменить структуру, удалить
-						демонстрационные
-						товары и </em><em>добавить свои вы можете в разделе </em><em>Товары -&gt; Каталог на
-						сайте.</em>
-				</p>
-				<p><em>Для перехода в административный раздел (бэк-офис) интернет-магазина нажмите на ссылку <a
-								href="/admin/login">Вход с паролем</a> внизу страницы.<br/></em></p>
-				<p><em>Отредактировать эту страницу Вы можете в разделе Сайт-&gt;Меню и страницы. Сменить дизайн
-						магазина Вы можете в разделе Сайт -&gt; Дизайн</em></p>
+                <?php if ( !empty($info->content) ): ?>
+					<p><?= $info->content ?></p>
+                <?php else: ?>
+						<p>Добро пожаловать в наш интернет-магазин!</p>
+						<p>Мы с радостью принимаем и обслуживаем заказы 7 дней в неделю с 10 до 19 по московскому времени.</p>
+						<p>Сделайте заказ через сайт и мы Вам перезвоним для согласования заказа.</p>
+						<p><em><br></em></p>
+                <?php endif; ?>
 			</div>
 		</div>
 

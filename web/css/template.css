@@ -4383,7 +4383,9 @@ button.mz-button.mz-button-next:before { content: url("data:image/svg+xml;base64
 /* input */
 /* line 6, _input.scss */
 .input-field, .checkout .order_client_bonus_system #order_client_bonus_points {
-    border-color: #363636; }
+    border-color: #363636; 
+    resize: vertical;
+}
 /* line 13, _input.scss */
 .input--inline .input-label,
 .input--inline .input-field,

@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][]= $this->title;
                 <p>Товаров</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fa fa-cubes"></i>
             </div>
             <a href="<?= Url::to(['product/index']) ?>" class="small-box-footer">К списку товаров <i class="fa fa-arrow-circle-right"></i></a>
         </div>
@@ -39,17 +39,17 @@ $this->params['breadcrumbs'][]= $this->title;
 		</div>
 	</div>
 
-	<?php $mails = $this->params['mails'] ?>
+	<?php $mails = $this->params['mails']; $countMails = count($mails) ;?>
 	<div class="col-lg-3 col-xs-6">
 		<!-- small box -->
 		<div class="small-box bg-yellow">
 			<div class="inner">
-				<h3><?= $mails ?></h3>
+				<h3><?= $countMails ?></h3>
 
 				<p>E-mail клиентов</p>
 			</div>
 			<div class="icon">
-				<i class="ion ion-person-add"></i>
+				<i class="fa fa-envelope"></i>
 			</div>
 			<a href="<?= Url::to(['mail/index']) ?>" class="small-box-footer">
 				К списку писем <i class="fa fa-arrow-circle-right"></i>
@@ -82,7 +82,7 @@ $this->params['breadcrumbs'][]= $this->title;
 						<a href="<?= Url::to(['info/index']) ?>" class="product-title">Контакты
 							</a>
 						<span class="product-description">
-                          Телефоны, email, адрес, время работы
+                          Телефоны, email, адрес, время работы, контент главной страницы
                         </span>
 					</div>
 				</li>

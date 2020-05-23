@@ -16,6 +16,7 @@
             $model = new ContactForm();
 
             if ( Yii::$app->request->isPjax ) {
+
                 if ( $model->load(\Yii::$app->request->post()) && $model->validate() ) {
                     if ( !$model->save() ) {
                         \Yii::$app->session->setFlash('error', 'Ошибка оформления заказа');
