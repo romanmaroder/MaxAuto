@@ -35,7 +35,8 @@
                     <?php foreach ( $slidesDefault as $item ): ?>
 
                         <?php $textDefault = "<img class='owl-lazy' style='max-height: 360px; width: auto; margin: 0 auto;'
-						 data-src=' $item->image'
+						 data-src='$item->image'
+						 src='$item->image'
 						 alt=''/>"; ?>
                         <?= Html::a($textDefault, ['/'], ['class'    => 'slider-image _owl-lazy',
                                                           'data-src' => $item->image]) ?>
@@ -55,7 +56,6 @@
 	</div>
 
 	<div class="tabs tabs--index">
-
 		<ul class="tabs-controls tabs-controls--horizontal">
             <?php foreach ( $categories as $id => $category ) : ?>
 
@@ -66,10 +66,7 @@
             <?php endforeach; ?>
 
 		</ul>
-
-
 		<div id="frontpage" class="tabs-content tabs-content--active">
-
 			<div class="collection-product_list grid-row-inner grid-inline">
                 <?php if ( !empty($products) ): ?>
                     <?php foreach ( $products as $product ): ?>
@@ -122,12 +119,9 @@
 					</div>
                 <?php endif; ?>
 			</div>
-
-
 			<!--	Pagination-->
 			<div class="row">
 				<div class="xs-grid-12 lg-fr xs-center">
-
 					<div class="sm-center xs-center">
                         <?= \yii\widgets\LinkPager::widget(['pagination'           => $pages,
                                                             'nextPageLabel'        => '<i class="fa fa-angle-right"></i>',
@@ -145,19 +139,14 @@
                                                             ]
                         ]) ?>
 					</div>
-
 				</div>
 			</div>
-
 		</div>
-
 		<div id="hits" class="tabs-content">
-
 			<div class="collection-product_list grid-row-inner grid-inline">
                 <?php if ( !empty($hits) ): ?>
                     <?php foreach ( $hits as $hit ): ?>
-						<div class="lg-grid-3 md-grid-4 xs-grid-6 mc-grid-12
-									padded-inner">
+						<div class="lg-grid-3 md-grid-4 xs-grid-6 mc-grid-12 padded-inner">
 							<div class="product_preview">
                                 <?php if ( $hit->sale ) : ?>
 									<div class="product_preview-status product_preview-status--sale">
@@ -171,22 +160,16 @@
                                         <?= Html::img("@web/{$hit->image_1}", ['title' => $hit->title]) ?>
 									</a>
 								</div>
-
 								<form action="/cart_items" class="product_preview-form row">
-
 									<div class="product_preview-prices prices lg-grid-12">
 										<div class="prices-current">
                                             <?= $hit->price ?> руб
 										</div>
 									</div>
-
-									<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy"
-									   data-quick-checkout="" title="<?= $hit->title ?>">
+									<p class="product-quick_checkout product_preview-button button button--buy lg-grid-12 js-buy" data-quick-checkout="" title="<?= $hit->title ?>">
 										Быстрый заказ
 									</p>
-
 								</form>
-
 								<div class="product_preview-title">
 									<a href="<?= Url::to(['product/view', 'id' => $hit->id]) ?>"
 									   class="product_preview-link"
@@ -195,7 +178,6 @@
 									</a>
 								</div>
 							</div>
-
 						</div>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -204,23 +186,17 @@
 					</div>
                 <?php endif; ?>
 			</div>
-
 			<div class="padded-top right">
 				<a href="<?= Url::to(['category/view', 'id' => 2]) ?>" class="button mc-grid-12">
 					Все товары
 				</a>
 			</div>
-
 		</div>
-
 		<div id="popular" class="tabs-content">
-
 			<div class="collection-product_list grid-row-inner grid-inline">
                 <?php if ( !empty($offers) ): ?>
-
                     <?php foreach ( $offers as $offer ): ?>
-						<div class="lg-grid-3 md-grid-4 xs-grid-6 mc-grid-12
-									padded-inner">
+						<div class="lg-grid-3 md-grid-4 xs-grid-6 mc-grid-12 padded-inner">
 							<div class="product_preview">
                                 <?php if ( $offer->sale ) : ?>
 									<div class="product_preview-status product_preview-status--sale">
@@ -260,7 +236,6 @@
 									</a>
 								</div>
 							</div>
-
 						</div>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -282,12 +257,11 @@
 
 			<div class="page-content editor">
                 <?php if ( !empty($info->content) ): ?>
-					<p><?= $info->content ?></p>
+					<?= $info->content ?>
                 <?php else: ?>
 						<p>Добро пожаловать в наш интернет-магазин!</p>
 						<p>Мы с радостью принимаем и обслуживаем заказы 7 дней в неделю с 10 до 19 по московскому времени.</p>
 						<p>Сделайте заказ через сайт и мы Вам перезвоним для согласования заказа.</p>
-						<p><em><br></em></p>
                 <?php endif; ?>
 			</div>
 		</div>

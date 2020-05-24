@@ -1,8 +1,7 @@
 <?php
 
     use yii\helpers\Html;
-    use yii\bootstrap\ActiveForm;
-    use yii\captcha\Captcha;
+  use yii\widgets\ActiveForm;
 
 ?>
 
@@ -27,7 +26,7 @@
 	<div class="m-modal m-modal--checkout" id="quick-checkout-dialog" style="opacity: 0; display: none;">
 		<div class="m-modal-wrapper">
 
-            <?php $form = \yii\widgets\ActiveForm::begin([
+            <?php $form = ActiveForm::begin([
                 'id'        => 'quick_checkout_form',
                 'options'     => [
                     'data-pjax' => true,
@@ -44,18 +43,17 @@
 			<div class="m-modal-heading">Заказ в один клик</div>
 			<div class="m-input m-input--required ">
                 <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
-                <?= $form->field($model, 'phone')->input('phone',['placeholder'=>'+38 099 999-99-99']) ?>
+                <?= $form->field($model, 'phone')->input('tel',['placeholder'=>'+38 099 999-99-99']) ?>
                 <?= $form->field($model, 'email')->input('email') ?>
-                <?= $form->field($model, 'message')->textarea(['row' => 5,'placeholder'=>'Напишите артикул или название товара']) ?>
+                <?= $form->field($model, 'message')->textarea(['rows' => 5,'placeholder'=>'Напишите артикул или название товара']) ?></div>
 				<div class="m-modal-footer">
                     <?= Html::submitButton('Заказать', ['class' => 'm-modal-button m-modal-button--checkout button--checkout', 'name'  => 'contact-button']) ?>
 				</div>
-                <?php \yii\widgets\ActiveForm::end() ?>
+                <?php ActiveForm::end() ?>
                 <?php endif; ?>
 			</div>
 		</div>
 	</div>
-</div>
 
 <?php \yii\widgets\Pjax::end() ?>
 

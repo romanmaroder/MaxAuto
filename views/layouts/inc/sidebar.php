@@ -1,6 +1,11 @@
+<?php
+use app\models\Blog;
+
+?>
 <div class="lg-grid-3 md-grid-3 sm-hidden xs-hidden padded-inner-sides lg-fr md-fr center">
 
     <div class="sidebar">
+
 <?php $lastNews = $this->params['lastNews'] ?>
 
         <?php if (!empty($lastNews)): ?>
@@ -21,6 +26,7 @@
             </div>
 
         <?php endif; ?>
+
 
         <div class="sidebar_block">
             <div class="sidebar_block-title">Группа ВКонтакте</div>
@@ -64,6 +70,5 @@ JS;
                 <!--<a href="#"><i class="fa fa-vk fa-2x" aria-hidden="true"></i></a>-->
             </div>
         </div>
-
     </div>
 </div>
