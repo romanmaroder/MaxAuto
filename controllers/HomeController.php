@@ -27,6 +27,7 @@ class HomeController extends AppController
         $slidesDefault = Banner::find()->all();
 
         $category = Category::findOne($id);
+
         $this->setMeta(\Yii::$app->name, $category->keywords, $category->description);
 
         $query = Product::find();
