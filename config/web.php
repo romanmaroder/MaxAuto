@@ -8,7 +8,9 @@
         'basePath'     => dirname(__DIR__),
         'bootstrap'    => ['log'],
         'defaultRoute' => 'home/index',
-        'language'     => 'ru-Ru',
+        'sourceLanguage'=>'ru_ru',
+        'language'=>'ru',
+        'charset'=>'utf-8',
         'name'         => 'MAX-Авто',
         'layout'       => 'maxauto',
         'aliases'      => [

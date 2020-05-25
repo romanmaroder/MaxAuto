@@ -26,13 +26,13 @@
                         \Yii::$app->mailer->compose('user', ['model' => $model])
                                           ->setFrom([\Yii::$app->params['senderEmail'] => \Yii::$app->params['senderName']])
                                           ->setTo([$model->email])
-                                          ->setSubject('MAX-Авто')
+                                          ->setSubject(Yii::$app->name)
                                           ->send();
 
                         \Yii::$app->mailer->compose('list', ['model' => $model])
                                           ->setFrom([\Yii::$app->params['senderEmail'] => \Yii::$app->params['senderName']])
                                           ->setTo([\Yii::$app->params['adminEmail']])
-                                          ->setSubject('Заказ с MAX-Авто')
+                                          ->setSubject('Заказ с ' .Yii::$app->name)
                                           ->send();
 
                         return $this->render('modalWidget', compact('model', 'answer'));
