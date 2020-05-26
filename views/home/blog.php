@@ -8,12 +8,7 @@ use app\models\Blog;
 
 
 <?= $this->render('//layouts/inc/sidebar') ?>
-<?php if($this->beginCache('aside-widget', [
-    'duration' => 3600, //(default = 0)
-    'dependency' => [
-        'class' => 'yii\caching\DbDependency',
-        'sql' => 'SELECT MAX(updated_at) FROM ' . Blog::tableName(),
-    ],])): ?>
+
 <div class="blog row lg-grid-9 md-grid-9 sm-grid-12 xs-grid-12 padded-inner-sides">
     <div class="row">
         <div class="breadcrumbs">
@@ -89,4 +84,3 @@ use app\models\Blog;
 
     </div>
 </div>
-    <?php $this->endCache(); endif; ?>
